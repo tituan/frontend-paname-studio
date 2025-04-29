@@ -1,11 +1,11 @@
-import '../styles/globals.css';
+import '../styles/globals.scss';
 import Head from 'next/head';
 
 function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Next.js App</title>
+        <title>Paname Studio</title>
       </Head>
       <Component {...pageProps} />
     </>
