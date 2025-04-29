@@ -7,7 +7,7 @@ function Home() {
         {/* <h1 className={styles.title}>
           Paname Studio
         </h1> */}
-        <img src="./img/paname-studio-logo-01.png" className={styles.panameStudio} alt="Paname Studio" />
+        <img src="./img/paname-studio-logo-01.png" className={styles.panameStudioLogo} alt="Paname Studio" />
       </main>
     </div>
   );
