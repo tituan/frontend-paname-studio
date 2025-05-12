@@ -8,6 +8,7 @@ export default function HeaderVideo() {
             loop
             playsInline
             preload="auto"
+            controls={false}
             style={{ width: '100vw', height: '100dvh', objectFit: 'cover' }}
         />
       
