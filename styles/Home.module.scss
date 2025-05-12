@@ -1,5 +1,5 @@
-@import "breakpoints"; 
-@import "variables"; 
+@import "breakpoints";
+@import "variables";
 
 .main {
   display: flex;
@@ -7,8 +7,38 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.contentOverlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  text-align: center;
+  color: $color-white;
+  pointer-events: none;
 }
 
 .panameStudioLogo {
-  width: 50vw;
+  width: 30vw;
+  max-width: 600px;
+  height: auto;
+}
+
+.title {
+  margin: 0;
+}
+
+.subTitle {
+  font-size: 8px;
+  margin-top: 5px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  color: $color-black;
+  @include respond(tablet) {
+    font-size: 20px;
+  }
 }
