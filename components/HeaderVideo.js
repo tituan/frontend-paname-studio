@@ -2,7 +2,7 @@ export default function HeaderVideo() {
     return (
         <header style={{ position: 'relative', overflow: 'hidden' }}>
         <video
-          src="/videos/presentation-video-09.mp4"
+          src="/videos/presentation-video-10.mp4"
           autoPlay
           loop
           muted
@@ -17,7 +17,7 @@ export default function HeaderVideo() {
           left: 0,
           width: '100%',
           height: '100%',
-          backgroundColor: 'rgba(255, 255, 255, 0.9)', 
+          backgroundColor: 'rgba(255, 255, 255, 0.6)', 
           pointerEvents: 'none',
           zIndex: 1
         }} />
