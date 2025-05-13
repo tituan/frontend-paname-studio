@@ -2,15 +2,22 @@ export default function HeaderVideo() {
     return (
         <header style={{ position: 'relative', overflow: 'hidden' }}>
         <video
-            src="/videos/presentation-video-14.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            controls={false}
-            style={{ width: '100vw', height: '100dvh', objectFit: 'cover' }}
-        />
+          src="/videos/presentation-video-14.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          style={{ width: '100vw', height: '100dvh', objectFit: 'cover' }}
+        >
+          <track
+            kind="captions"
+            src="/videos/presentation-video-14.vtt"
+            srcLang="fr"
+            label="Sous-titres français"
+            default
+          />
+        </video>
       
         {/* Overlay */}
         <div style={{
