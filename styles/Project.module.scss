@@ -1,0 +1,50 @@
+@import "breakpoints";
+@import "variables";
+
+.projectContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    @include respond(tablet) {
+      flex-direction: row;
+    }
+  }
+  
+  .projectCard {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    aspect-ratio: 1;
+    overflow: hidden;
+    text-decoration: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    margin: 10px;
+    background-color: #C0D8D8;
+    opacity: 0.8;
+    width: 170px;
+  
+    @include respond(tablet) {
+      width: 250px;
+    }
+  
+    &:hover {
+      transform: translateY(-10px); 
+      opacity: 1;
+    }
+  }
+  
+  
+  .projectTitle {
+    color: $color-white;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+    z-index: 1;
+    color: $color-black;
+    z-index: -1;
+    text-transform: uppercase;
+  }

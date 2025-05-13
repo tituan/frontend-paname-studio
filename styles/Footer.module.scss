@@ -1,0 +1,25 @@
+.footer {
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .imageContainer {
+    margin-bottom: 1rem;
+  }
+  
+  .footerImage {
+    height: auto;
+  }
+  
+  .footerText {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.5px;
+    opacity: 0.8;
+  }
