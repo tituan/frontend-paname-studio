@@ -18,7 +18,7 @@ export default function ProjectBlock() {
   return (
     <div className={styles.projectContainer}>
       {projects.map((project, index) => (
-        <Link href={project.link} key={index}>
+        <Link href={project.link} key={index} passHref>
           <a
             className={styles.projectCard}
             style={{
@@ -26,7 +26,9 @@ export default function ProjectBlock() {
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }}
-            target='_blank'
+            aria-label={`Projet ${project.title}`}
+            target="_blank"
+            rel="noopener noreferrer"
           >
             {/* <span className={styles.projectTitle}>{project.title}</span> */}
           </a>
@@ -35,4 +37,5 @@ export default function ProjectBlock() {
     </div>
   );
 }
+
 
