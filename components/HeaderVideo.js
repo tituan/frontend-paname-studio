@@ -15,7 +15,6 @@ export default function HeaderVideo() {
             src="/videos/presentation-video-14.vtt"
             srcLang="fr"
             label="Sous-titres français"
-            default
           />
         </video>
       
