@@ -139,4 +139,13 @@
   }
 }
 
+.fadeInSection {
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+  will-change: opacity, transform;
+}
 
+.fadeInVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
