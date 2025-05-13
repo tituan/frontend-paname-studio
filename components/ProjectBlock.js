@@ -4,12 +4,12 @@ import styles from '../styles/Project.module.scss';
 const projects = [
   {
     title: 'Kiddiz',
-    imageUrl: '/img/projet-01.png',
+    imageUrl: '/img/projet-01.webp',
     link: '#',
   },
   {
     title: 'Capsol',
-    imageUrl: '/img/projet-02.png',
+    imageUrl: '/img/projet-02.webp',
     link: 'https://be-capsol.com',
   },
 ];

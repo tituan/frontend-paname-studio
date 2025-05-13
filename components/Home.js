@@ -176,10 +176,11 @@ function Home() {
               <div className={styles.contentOverlay}>
                 <h1 className={styles.title}>
                   <Image
-                    src="/img/paname-studio-logo-01.png"
+                    src="/img/paname-studio-logo-01.webp"
                     alt="Paname Studio - création digitale - Paris"
                     width={921}
                     height={468}
+                    priority
                     className={styles.panameStudioLogo}
                   />
                 </h1>
