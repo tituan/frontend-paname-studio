@@ -10,12 +10,12 @@ export default function HeaderVideo() {
           preload="auto"
           style={{ width: '100vw', height: '100dvh', objectFit: 'cover' }}
         >
-          <track
+          {/* <track
             kind="captions"
             src="/videos/presentation-video-14.vtt"
             srcLang="fr"
             label="Sous-titres français"
-          />
+          /> */}
         </video>
       
         {/* Overlay */}
