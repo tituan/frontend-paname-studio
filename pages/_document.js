@@ -43,7 +43,7 @@ export default function Document() {
                     button: { background: "#ffff", text: "#000" }
                   },
                   theme: "classic",
-                  position: "bottom-left",
+                  position: "bottom-right",
                   content: {
                     message: "Ce site utilise des cookies pour vous garantir la meilleure expérience.",
                     dismiss: "J'ai compris",
