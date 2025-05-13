@@ -13,18 +13,49 @@ export default function Document() {
           rel="stylesheet"
         />
 
-        {/* Google Tag Manager */}
+        {/* CookieConsent - Osano */}
         <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','GTM-595GFJ57');`,
-          }}
+          async
+          src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"
+        ></script>
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css"
         />
+        <style>{`
+          .cc-btn:hover {
+            background-color: #ffff !important;
+            color: #000 !important;
+            opacity: 1 !important;
+            text-decoration: none !important;
+          }
+        `}</style>
       </Head>
       <body>
+        {/* CookieConsent config */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.addEventListener("load", function(){
+                window.cookieconsent.initialise({
+                  palette: {
+                    popup: { background: "#000" },
+                    button: { background: "#ffff", text: "#000" }
+                  },
+                  theme: "classic",
+                  position: "bottom-left",
+                  content: {
+                    message: "Ce site utilise des cookies pour vous garantir la meilleure expérience.",
+                    dismiss: "J'ai compris",
+                    link: "En savoir plus",
+                    href: "/politique-de-confidentialite"
+                  }
+                })
+              });
+            `,
+          }}
+        />
+
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
@@ -41,3 +72,4 @@ export default function Document() {
     </Html>
   );
 }
+
