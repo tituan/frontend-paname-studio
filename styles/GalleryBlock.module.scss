@@ -3,17 +3,23 @@
 
 .galleryContainer {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 1rem;
   width: 100%;
-  flex-wrap: wrap;
+  
+  @include respond(tablet) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .imageWrapper {
   width: 100%;
-  max-width: 50%;
+  max-width: 170px;
 
   @include respond(tablet) {
     max-width: 20%;
