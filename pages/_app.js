@@ -17,6 +17,9 @@ function App({ Component, pageProps }) {
           content="Paname Studio est un studio créatif à Paris spécialisé en création web, identité visuelle, photo et vidéo. Donnez vie à votre univers digital avec style."
         />
 
+        {/* Favicon */}
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
         {/* Open Graph */}
         <meta property="og:title" content="Paname Studio – Créatif & Digital" />
         <meta property="og:description" content="Studio créatif à Paris spécialisé en création de sites web, photographie, vidéo et identité visuelle." />
