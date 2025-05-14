@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import styles from '../styles/Footer.module.scss';
+import ModalMentions from './ModalMentions';
 
 export default function Footer() {
   return (
@@ -13,6 +14,11 @@ export default function Footer() {
           className={styles.footerImage}
         />
       </div>
+
+      <div className={styles.footerLegal}>
+        <ModalMentions />
+      </div>
+
       <p className={styles.footerText}>
         © {new Date().getFullYear()} Paname Studio
       </p>

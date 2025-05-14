@@ -116,3 +116,11 @@ h2 {
   margin: 0;
   padding: 0;
 }
+
+#images {
+  background-color: #C0D8D8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
