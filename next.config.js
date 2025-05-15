@@ -2,28 +2,15 @@
 
 const isDev = process.env.NODE_ENV === 'development';
 
-const ContentSecurityPolicy = isDev
-  ? `
-    default-src 'self';
-    script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://cdn.jsdelivr.net;
-    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net;
-    img-src 'self' data: https://www.googletagmanager.com https://cdn.jsdelivr.net;
-    font-src 'self' https://fonts.gstatic.com;
-    connect-src 'self';
-    frame-src https://www.googletagmanager.com;
-  `
-  : `
-    default-src 'self';
-    script-src 'self' https://www.googletagmanager.com https://cdn.jsdelivr.net;
-    style-src 'self' https://fonts.googleapis.com https://cdn.jsdelivr.net;
-    img-src 'self' data: https://www.googletagmanager.com https://cdn.jsdelivr.net;
-    font-src 'self' https://fonts.gstatic.com;
-    connect-src 'self';
-    frame-src https://www.googletagmanager.com;
-    object-src 'none';
-    base-uri 'self';
-    form-action 'self';
-  `;
+const ContentSecurityPolicy = `
+  default-src 'self';
+  script-src 'self' 'unsafe-inline' ${isDev ? "'unsafe-eval'" : ''} https://www.googletagmanager.com https://cdn.jsdelivr.net;
+  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net;
+  img-src 'self' data: https://www.googletagmanager.com https://cdn.jsdelivr.net;
+  font-src 'self' https://fonts.gstatic.com;
+  connect-src 'self';
+  frame-src https://www.googletagmanager.com;
+`.replace(/\s{2,}/g, ' ').trim();
 
 const nextConfig = {
   reactStrictMode: true,
@@ -41,7 +28,7 @@ const nextConfig = {
         headers: [
           {
             key: 'Content-Security-Policy',
-            value: ContentSecurityPolicy.replace(/\s{2,}/g, ' ').trim(),
+            value: ContentSecurityPolicy,
           },
         ],
       },
@@ -50,4 +37,3 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
-
