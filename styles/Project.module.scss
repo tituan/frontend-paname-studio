@@ -37,7 +37,7 @@
   box-shadow: 10px 9px 74px -40px rgba(0, 0, 0, 0.6);
   transition: transform 0.3s ease, opacity 0.3s ease;
   opacity: 0.85;
-
+  border: 2px solid black;
   &:hover {
     transform: translateY(-8px);
     opacity: 1;
@@ -60,6 +60,7 @@
   height: 180px;
   position: relative;
   overflow: hidden;
+
   @include respond(tablet) {
     height: 220px;
   }
