@@ -7,38 +7,22 @@ export default function Document() {
         {/* Google Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;300;400;500;600;700;800;900&display=swap"
-          rel="stylesheet"
-        />
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 
-        {/* ✅ Content Security Policy for GA4 */}
-        <meta
-          httpEquiv="Content-Security-Policy"
-          content="
-            default-src 'self';
-            script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com;
-            connect-src 'self' https://region1.google-analytics.com https://www.google-analytics.com;
-            img-src 'self' https://www.google-analytics.com data:;
-            style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-            font-src 'self' https://fonts.gstatic.com;
-          "
-        />
 
         {/* Google Tag Manager - HEAD */}
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
             })(window,document,'script','dataLayer','GTM-595GFJ57');`,
           }}
         />
 
-        {/* CookieConsent - Osano (désactivé temporairement) */}
-        {/*
-        <script
+        {/* CookieConsent - Osano */}
+        {/* <script
           async
           src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"
         ></script>
@@ -53,8 +37,7 @@ export default function Document() {
             opacity: 1 !important;
             text-decoration: none !important;
           }
-        `}</style>
-        */}
+        `}</style> */}
       </Head>
       <body>
         {/* Google Tag Manager (noscript) */}
@@ -67,9 +50,8 @@ export default function Document() {
           ></iframe>
         </noscript>
 
-        {/* CookieConsent config (désactivé) */}
-        {/*
-        <script
+        {/* CookieConsent config */}
+        {/* <script
           dangerouslySetInnerHTML={{
             __html: `
               window.addEventListener("load", function(){
@@ -90,8 +72,7 @@ export default function Document() {
               });
             `,
           }}
-        />
-        */}
+        /> */}
 
         <Main />
         <NextScript />
