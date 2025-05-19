@@ -21,7 +21,7 @@ export default function Document() {
         />
 
         {/* CookieConsent - désactivé pour debug */}
-        {/*
+        
         <script async src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
         <style>{`
@@ -32,7 +32,7 @@ export default function Document() {
             text-decoration: none !important;
           }
         `}</style>
-        */}
+       
       </Head>
       <body>
         {/* Google Tag Manager (noscript) */}
@@ -46,7 +46,7 @@ export default function Document() {
         </noscript>
 
         {/* CookieConsent config - désactivé */}
-        {/*
+        
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -69,7 +69,7 @@ export default function Document() {
             `,
           }}
         />
-        */}
+       
 
         <Main />
         <NextScript />
