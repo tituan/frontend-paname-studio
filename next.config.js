@@ -8,7 +8,7 @@ const ContentSecurityPolicy = `
   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net;
   img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com https://cdn.jsdelivr.net;
   font-src 'self' https://fonts.gstatic.com;
-  connect-src 'self' https://region1.google-analytics.com https://www.google-analytics.com;
+  connect-src 'self' https://region1.google-analytics.com https://www.google-analytics.com https://www.googletagmanager.com;
   frame-src https://www.googletagmanager.com;
 `.replace(/\s{2,}/g, ' ').trim();
 
@@ -37,4 +37,3 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
-

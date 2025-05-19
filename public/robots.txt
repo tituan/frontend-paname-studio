@@ -1,4 +1,9 @@
+# *
 User-agent: *
 Allow: /
 
+# Host
+Host: https://www.paname-studio.fr
+
+# Sitemaps
 Sitemap: https://www.paname-studio.fr/sitemap.xml
