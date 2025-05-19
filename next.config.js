@@ -4,11 +4,11 @@ const isDev = process.env.NODE_ENV === 'development';
 
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' 'unsafe-inline' ${isDev ? "'unsafe-eval'" : ''} https://www.googletagmanager.com https://cdn.jsdelivr.net;
+  script-src 'self' 'unsafe-inline' ${isDev ? "'unsafe-eval'" : ''} https://www.googletagmanager.com https://www.google-analytics.com https://cdn.jsdelivr.net;
   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net;
-  img-src 'self' data: https://www.googletagmanager.com https://cdn.jsdelivr.net;
+  img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com https://cdn.jsdelivr.net;
   font-src 'self' https://fonts.gstatic.com;
-  connect-src 'self';
+  connect-src 'self' https://region1.google-analytics.com https://www.google-analytics.com;
   frame-src https://www.googletagmanager.com;
 `.replace(/\s{2,}/g, ' ').trim();
 
@@ -37,3 +37,4 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
+
