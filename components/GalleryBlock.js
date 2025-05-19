@@ -23,6 +23,7 @@ export default function GalleryBlock() {
             layout="responsive"
             width={800}
             height={800}
+            loading="eager"
             className={styles.image}
           />
         </div>

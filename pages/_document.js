@@ -22,7 +22,7 @@ export default function Document() {
         />
 
         {/* CookieConsent - Osano */}
-        <script
+        {/* <script
           async
           src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"
         ></script>
@@ -37,7 +37,7 @@ export default function Document() {
             opacity: 1 !important;
             text-decoration: none !important;
           }
-        `}</style>
+        `}</style> */}
       </Head>
       <body>
         {/* Google Tag Manager (noscript) */}
@@ -51,7 +51,7 @@ export default function Document() {
         </noscript>
 
         {/* CookieConsent config */}
-        <script
+        {/* <script
           dangerouslySetInnerHTML={{
             __html: `
               window.addEventListener("load", function(){
@@ -72,7 +72,7 @@ export default function Document() {
               });
             `,
           }}
-        />
+        /> */}
 
         <Main />
         <NextScript />
