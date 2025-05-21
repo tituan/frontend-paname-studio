@@ -190,13 +190,13 @@ function Home() {
             </div>
           </section>
 
-          <section
+          {/* <section
             id="projets"
             className={`${styles.fullscreenSection} ${styles.fadeInSection}`}
             ref={(el) => (fadeRefs.current[0] = el)}
           >
             <ProjectBlock />
-          </section>
+          </section> */}
 
           <section
             id="images"
