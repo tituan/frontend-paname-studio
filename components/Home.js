@@ -155,7 +155,7 @@ function Home() {
     <div className={styles.pageContainer}>
       <div className={styles.mapWrapper}>
         <nav className={styles.sidebar}>
-          {['<>', 'projets', 'images', '</>'].map((id) => (
+          {['<>', 'images', '</>'].map((id) => (
             <a
               key={id}
               href={`#${id}`}
