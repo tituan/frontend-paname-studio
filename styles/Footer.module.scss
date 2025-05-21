@@ -21,11 +21,15 @@
 .imageContainer {
   margin-bottom: 1rem;
   padding: 0 50px;
-  max-width: 20vw;
+  max-width: 200px;
   margin-bottom: 30px;
+  @include respond(tablet) {
+    max-width: 300px;
+  }
 }
 
 .footerImage {
+  width: 100%;
   height: auto;
 }
 
