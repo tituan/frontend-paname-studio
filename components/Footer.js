@@ -7,10 +7,10 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.imageContainer}>
         <Image
-          src="/img/logos-variantes-paname.webp"
+          src="/img/logos-1.svg"
           alt="Paname Studio Footer"
-          width={300}
-          height={63}
+          width={787}
+          height={718}
           className={styles.footerImage}
         />
       </div>

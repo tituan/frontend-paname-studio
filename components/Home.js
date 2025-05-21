@@ -208,7 +208,7 @@ function Home() {
 
           <section
             id="</>"
-            className={`${styles.fullscreenSection} ${styles.fadeInSection}`}
+            className={`${styles.fullscreenSection} ${styles.fadeInSection} ${styles.sectionFooter}`}
             ref={(el) => (fadeRefs.current[2] = el)}
           >
             <Footer />

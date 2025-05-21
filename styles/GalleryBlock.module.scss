@@ -20,7 +20,6 @@
 .imageWrapper {
   width: 100%;
   max-width: 170px;
-
   @include respond(tablet) {
     max-width: 20%;
   }
