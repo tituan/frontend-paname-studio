@@ -34,6 +34,16 @@ const nextConfig = {
       },
     ];
   },
+
+  // On ajoute le proxy ici
+  async rewrites() {
+    return [
+      {
+        source: '/spotify/:path*',
+        destination: 'http://localhost:3001/spotify/:path*',
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;

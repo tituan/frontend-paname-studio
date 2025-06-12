@@ -1,8 +1,30 @@
+// styles/base/_mixins.scss
+
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+
 @mixin respond($breakpoint) {
-    @if $breakpoint == tablet {
-        @media (min-width: 768px) { @content; }
+  @if $breakpoint == tablet {
+    @media (min-width: #{$breakpoint-tablet}) {
+      @content;
     }
-    @else if $breakpoint == desktop {
-        @media (min-width: 1024px) { @content; }
+  } @else if $breakpoint == desktop {
+    @media (min-width: #{$breakpoint-desktop}) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint #{$breakpoint} non reconnu. Utilisez 'tablet' ou 'desktop'.";
+  }
+}
+
+@mixin tablet {
+    @media (min-width: #{$breakpoint-tablet}) {
+      @content;
+    }
+  }
+  
+@mixin desktop {
+    @media (min-width: #{$breakpoint-desktop}) {
+        @content;
     }
 }

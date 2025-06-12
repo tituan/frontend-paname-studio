@@ -1,5 +1,6 @@
-@import "breakpoints";
-@import "variables";
+@use '_variables.scss' as *;
+@use '_breakpoints.scss' as *;
+
 
 
 .footer {
