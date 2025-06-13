@@ -90,3 +90,71 @@
     font-size: 0.6rem;
   }
 }
+
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContent {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalVideo {
+    max-width: 250px;
+    max-height: 88dvh;
+    border-radius: 8px;
+    object-fit: contain;
+    @include respond(desktop) {
+        max-width: 450px;
+    }
+}
+
+.modalInfo {
+  position: absolute;
+  bottom: 25px;
+  left: 20px;
+  color: white;
+  text-align: left;
+  @include respond(tablet) {
+    bottom: 70px;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+  }
+
+  p {
+    font-size: 1rem;
+    margin-bottom: 3px;
+  }
+
+  span {
+    font-size: 0.8rem;
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 2rem;
+  background: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}

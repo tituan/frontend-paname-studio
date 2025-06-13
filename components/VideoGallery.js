@@ -16,9 +16,9 @@ const videoList = [
     src: '/videos/dji-villeneuve.mp4',
     poster: '/img/poster-villeneuve.png',
     title: 'Flamants Roses',
-    description: 'Vol au-dessus des flamants roses à Maguelone.',
-    city: 'Villeneuve-lès-Maguelone',
-    year: '2024',
+    description: 'Survol au-dessus des flamants roses.',
+    city: 'Maguelone',
+    year: '2025',
   },
   {
     id: 2,
@@ -60,19 +60,9 @@ const videoList = [
 
 export default function VideoGallery() {
   const [activeVideo, setActiveVideo] = useState(null);
-  const [maxItems, setMaxItems] = useState(4);
+  const [modalVideo, setModalVideo] = useState(null);
   const videoRefs = useRef({});
-
-  useEffect(() => {
-    const updateItems = () => {
-      setMaxItems(window.innerWidth > 1024 ? 6 : 4);
-    };
-
-    updateItems(); // Appel initial
-    window.addEventListener('resize', updateItems);
-
-    return () => window.removeEventListener('resize', updateItems);
-  }, []);
+  const modalVideoRef = useRef(null); // ref pour la vidéo de la modal
 
   const isDesktop = () => window.innerWidth > 1024;
 
@@ -80,35 +70,38 @@ export default function VideoGallery() {
     if (videoRefs.current[id]) {
       videoRefs.current[id].play();
     }
-    setActiveVideo(id);
   };
 
   const handlePause = (id) => {
     if (videoRefs.current[id]) {
       videoRefs.current[id].pause();
     }
-    setActiveVideo(null);
   };
 
-  const handleClick = (id) => {
-    if (!isDesktop()) {
-      if (activeVideo === id) {
-        handlePause(id);
-      } else {
-        handlePlay(id);
-      }
+  const openModal = (video) => {
+    setModalVideo(video);
+  };
+
+  const closeModal = () => {
+    setModalVideo(null);
+  };
+
+  // Fonction de fermeture avec pause
+  const handleOverlayClick = () => {
+    if (modalVideoRef.current) {
+      modalVideoRef.current.pause();
     }
+    closeModal();
   };
 
   return (
-    <div className={styles.galleryContainer}>
-      {videoList.slice(0, maxItems).map((video) => {
-        const isActive = activeVideo === video.id;
-        return (
+    <>
+      <div className={styles.galleryContainer}>
+        {videoList.map((video) => (
           <div
             key={video.id}
             className={styles.videoCard}
-            onClick={() => handleClick(video.id)}
+            onClick={() => openModal(video)}
             onMouseEnter={() => isDesktop() && handlePlay(video.id)}
             onMouseLeave={() => isDesktop() && handlePause(video.id)}
           >
@@ -121,17 +114,35 @@ export default function VideoGallery() {
               playsInline
               className={styles.video}
             />
-            {!isActive && <div className={styles.overlay}></div>}
-            {isActive && (
-              <div className={styles.infoOverlay}>
-                <h3>{video.title}</h3>
-                <p>{video.description}</p>
-                <span>{video.city} - {video.year}</span>
-              </div>
-            )}
+            <div className={styles.overlay}></div>
+            <div className={styles.infoOverlay}>
+              <h3>{video.title}</h3>
+              <p>{video.description}</p>
+              <span>{video.city} - {video.year}</span>
+            </div>
           </div>
-        );
-      })}
-    </div>
+        ))}
+      </div>
+
+      {modalVideo && (
+        <div className={styles.modalOverlay} onClick={handleOverlayClick}>
+          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+            <button className={styles.closeButton} onClick={handleOverlayClick}>×</button>
+            <video
+              ref={modalVideoRef}
+              src={modalVideo.src}
+              autoPlay
+              controls
+              className={styles.modalVideo}
+            />
+            <div className={styles.modalInfo}>
+              <h3>{modalVideo.title}</h3>
+              <p>{modalVideo.description}</p>
+              <span>{modalVideo.city} - {modalVideo.year}</span>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
