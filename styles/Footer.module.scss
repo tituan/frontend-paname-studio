@@ -12,7 +12,8 @@
   align-items: center;
   justify-content: center;
   padding-bottom: 50px;
-  background: linear-gradient(to bottom, #ffffff 0%, #ffffff 30%, #C0D8D8 100%);
+  // background: linear-gradient(to bottom, #ffffff 0%, #ffffff 30%, #C0D8D8 100%);
+   background: linear-gradient(to top, #ffffff 0%, #ffffff 30%, #C0D8D8 100%);
   @include respond(tablet) {
     padding-bottom: 0;
   }

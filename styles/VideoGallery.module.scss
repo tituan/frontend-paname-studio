@@ -1,0 +1,89 @@
+@import "breakpoints";
+@import "variables";
+
+.galleryContainer {
+    gap: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    height: 100vh;
+    justify-content: center;
+    align-content: center;
+    box-sizing: border-box;
+    background: linear-gradient(to bottom, #ffffff 0%, #ffffff 30%, #C0D8D8 100%),
+}
+
+.videoCard {
+    position: relative;
+    width: 45%;
+    max-height: 40%;
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    background-color: black;
+    transition: transform 0.3s ease;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
+    @include respond(tablet) {
+        width: 28%;
+    }
+    &:hover {
+        transform: scale(1.02);
+        .overlay {
+            opacity: 0.1;
+        }
+    }
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+   
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: background-color 0.2s ease;
+  z-index: 1;
+}
+
+.infoOverlay {
+  position: absolute;
+  inset: 0;
+//   background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 10px;
+  text-align: center;
+  z-index: 2;
+  transition: opacity 0.5s ease;
+
+  h3 {
+    font-size: 0.8rem;
+    margin-bottom: 2px; 
+    text-transform: uppercase;
+    @include respond(tablet) {
+      font-size: 1rem;
+    }
+  }
+
+  p {
+    font-size: 0.8rem;
+    margin-bottom: 2px;
+    display: none;
+    @include respond(tablet) {
+      display: block;
+    }
+  }
+
+  span {
+    font-size: 0.6rem;
+  }
+}
