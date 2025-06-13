@@ -39,7 +39,7 @@ export default function HeaderVideo() {
           left: 0,
           width: '100%',
           height: '100%',
-          background: 'linear-gradient(to bottom, #ffffff 0%, #ffffff 30%, #C0D8D8 100%)',
+          // background: 'linear-gradient(to bottom, #ffffff 0%, #ffffff 30%, #C0D8D8 100%)',
           pointerEvents: 'none',
           zIndex: 1
         }}

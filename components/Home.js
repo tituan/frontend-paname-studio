@@ -1,15 +1,21 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import styles from '../styles/Home.module.scss';
 import Image from 'next/image';
 import HeaderVideo from './HeaderVideo';
 import GalleryBlock from './GalleryBlock';
-import ProjectBlock from './ProjectBlock';
 import Footer from './Footer';
 import VideoGallery from './VideoGallery';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import BackgroundManager from '../components/BackgroundManager';
+import ColorPicker from '../components/ColorPicker'; // N'oublie pas cet import !
 
 function Home() {
   const [activeSection, setActiveSection] = useState('');
-  const fadeRefs = useRef([]);
+  const [bgColor, setBgColor] = useState('#C0D8D8'); // couleur par défaut
+
+  const headerRef = useRef(null);
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 300], [0, -50]);
 
   useEffect(() => {
     const sections = document.querySelectorAll('section');
@@ -31,22 +37,6 @@ function Home() {
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    fadeRefs.current.forEach((ref) => {
-      if (!ref) return;
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            ref.classList.add(styles.fadeInVisible);
-            observer.unobserve(ref);
-          }
-        },
-        { threshold: 0.3 }
-      );
-      observer.observe(ref);
-    });
-  }, []);
-
   const handleNavClick = (e, id) => {
     e.preventDefault();
     const section = document.getElementById(id);
@@ -57,6 +47,9 @@ function Home() {
 
   return (
     <div className={styles.pageContainer}>
+      <BackgroundManager color={bgColor} />
+      <ColorPicker onColorChange={setBgColor} /> {/* Color picker relié au state */}
+
       <div className={styles.mapWrapper}>
         <nav className={styles.sidebar}>
           {['<>', 'img', 'vid', '</>'].map((id) => (
@@ -68,20 +61,24 @@ function Home() {
                 activeSection === id ? styles.activeLink : styles.link
               }
             >
-              {id.charAt(0).toUpperCase() + id.slice(1)}
+              {id}
             </a>
           ))}
         </nav>
 
         <div className={styles.scrollContainer}>
-          {/* Section 1 : vidéo + texte */}
-          <section id="<>" className={styles.fullscreenSection}>
+          <motion.section
+            id="<>" 
+            ref={headerRef}
+            className={styles.fullscreenSection}
+            style={{ y }}
+          >
             <div className={styles.mainContainer}>
               <div className={styles.contentOverlay}>
                 <h1 className={styles.title}>
                   <Image
                     src="/img/logo-paname.svg"
-                    alt="Paname Studio - création digitale - Paris"
+                    alt="Paname Studio"
                     width={921}
                     height={468}
                     priority
@@ -92,38 +89,40 @@ function Home() {
               </div>
               <HeaderVideo />
             </div>
-          </section>
+          </motion.section>
 
-          {/* <section
-            id="projets"
-            className={`${styles.fullscreenSection} ${styles.fadeInSection}`}
-            ref={(el) => (fadeRefs.current[0] = el)}
-          >
-            <ProjectBlock />
-          </section> */}
-
-          <section
+          <motion.section
             id="img"
-            className={`${styles.fullscreenSection} ${styles.fadeInSection}`}
-            ref={(el) => (fadeRefs.current[0] = el)}
+            className={styles.normalSection}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
           >
             <GalleryBlock />
-          </section>
-          
-          <section
+          </motion.section>
+
+          <motion.section
             id="vid"
-            className={`${styles.fullscreenSection} ${styles.fadeInSection}`}
-            ref={(el) => (fadeRefs.current[1] = el)}
+            className={styles.normalSection}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
           >
             <VideoGallery />
-          </section>
-          <section
+          </motion.section>
+
+          <motion.section
             id="</>"
-            className={`${styles.fullscreenSection} ${styles.fadeInSection} ${styles.sectionFooter}`}
-            ref={(el) => (fadeRefs.current[3] = el)}
+            className={`${styles.normalSection} ${styles.sectionFooter}`}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
           >
             <Footer />
-          </section>
+          </motion.section>
         </div>
       </div>
     </div>
