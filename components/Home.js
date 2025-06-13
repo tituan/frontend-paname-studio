@@ -1,21 +1,17 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import styles from '../styles/Home.module.scss';
 import Image from 'next/image';
 import HeaderVideo from './HeaderVideo';
 import GalleryBlock from './GalleryBlock';
 import Footer from './Footer';
 import VideoGallery from './VideoGallery';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import BackgroundManager from '../components/BackgroundManager';
-import ColorPicker from '../components/ColorPicker'; // N'oublie pas cet import !
+import ColorPicker from '../components/ColorPicker';
 
 function Home() {
   const [activeSection, setActiveSection] = useState('');
-  const [bgColor, setBgColor] = useState('#C0D8D8'); // couleur par défaut
-
-  const headerRef = useRef(null);
-  const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 300], [0, -50]);
+  const [bgColor, setBgColor] = useState('#C0D8D8'); // couleur initiale
 
   useEffect(() => {
     const sections = document.querySelectorAll('section');
@@ -30,10 +26,7 @@ function Home() {
       { threshold: 0.6 }
     );
 
-    sections.forEach((section) => {
-      if (section) observer.observe(section);
-    });
-
+    sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
   }, []);
 
@@ -48,7 +41,7 @@ function Home() {
   return (
     <div className={styles.pageContainer}>
       <BackgroundManager color={bgColor} />
-      <ColorPicker onColorChange={setBgColor} /> {/* Color picker relié au state */}
+      <ColorPicker onColorChange={setBgColor} />
 
       <div className={styles.mapWrapper}>
         <nav className={styles.sidebar}>
@@ -57,9 +50,7 @@ function Home() {
               key={id}
               href={`#${id}`}
               onClick={(e) => handleNavClick(e, id)}
-              className={
-                activeSection === id ? styles.activeLink : styles.link
-              }
+              className={activeSection === id ? styles.activeLink : styles.link}
             >
               {id}
             </a>
@@ -67,12 +58,9 @@ function Home() {
         </nav>
 
         <div className={styles.scrollContainer}>
-          <motion.section
-            id="<>" 
-            ref={headerRef}
-            className={styles.fullscreenSection}
-            style={{ y }}
-          >
+
+          {/* HEADER FULLSCREEN NORMAL */}
+          <section id="<>" className={styles.fullscreenSection}>
             <div className={styles.mainContainer}>
               <div className={styles.contentOverlay}>
                 <h1 className={styles.title}>
@@ -89,7 +77,7 @@ function Home() {
               </div>
               <HeaderVideo />
             </div>
-          </motion.section>
+          </section>
 
           <motion.section
             id="img"
