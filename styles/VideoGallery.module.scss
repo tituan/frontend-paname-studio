@@ -2,7 +2,7 @@
 @import "variables";
 
 .galleryContainer {
-    gap: 25px;
+    gap: 15px;
     display: flex;
     flex-wrap: wrap;
     padding: 20px;
@@ -10,12 +10,15 @@
     justify-content: center;
     align-content: center;
     box-sizing: border-box;
-    background: linear-gradient(to bottom, #ffffff 0%, #ffffff 30%, #C0D8D8 100%),
+    background: linear-gradient(to bottom, #ffffff 0%, #ffffff 30%, #C0D8D8 100%);
+    @include respond(tablet) {
+        gap: 25px;
+    }
 }
 
 .videoCard {
     position: relative;
-    width: 45%;
+    width: 40%;
     max-height: 40%;
     overflow: hidden;
     aspect-ratio: 3 / 4;

@@ -1,8 +1,8 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styles from '../styles/VideoGallery.module.scss';
 
 const videoList = [
-    {
+  {
     id: 4,
     src: '/videos/dji-athenes.mp4',
     poster: '/img/poster-athenes.png',
@@ -60,7 +60,19 @@ const videoList = [
 
 export default function VideoGallery() {
   const [activeVideo, setActiveVideo] = useState(null);
+  const [maxItems, setMaxItems] = useState(4);
   const videoRefs = useRef({});
+
+  useEffect(() => {
+    const updateItems = () => {
+      setMaxItems(window.innerWidth > 1024 ? 6 : 4);
+    };
+
+    updateItems(); // Appel initial
+    window.addEventListener('resize', updateItems);
+
+    return () => window.removeEventListener('resize', updateItems);
+  }, []);
 
   const isDesktop = () => window.innerWidth > 1024;
 
@@ -90,7 +102,7 @@ export default function VideoGallery() {
 
   return (
     <div className={styles.galleryContainer}>
-      {videoList.slice(0, 9).map((video) => {
+      {videoList.slice(0, maxItems).map((video) => {
         const isActive = activeVideo === video.id;
         return (
           <div
