@@ -8,6 +8,7 @@ import VideoGallery from './VideoGallery';
 import { motion } from 'framer-motion';
 import BackgroundManager from '../components/BackgroundManager';
 import ColorPicker from '../components/ColorPicker';
+import GalleryGrid from '../components/GalleryGrid';
 
 function Home() {
   const [activeSection, setActiveSection] = useState('');
@@ -45,7 +46,7 @@ function Home() {
 
       <div className={styles.mapWrapper}>
         <nav className={styles.sidebar}>
-          {['<>', 'img', 'vid', '</>'].map((id) => (
+          {['<>', 'img', 'vid','<3', '</>'].map((id) => (
             <a
               key={id}
               href={`#${id}`}
@@ -99,6 +100,17 @@ function Home() {
             transition={{ duration: 0.6, ease: 'easeOut' }}
           >
             <VideoGallery />
+          </motion.section>
+
+          <motion.section
+            id="<3"
+            className={styles.normalSection}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+          >
+            <GalleryGrid />
           </motion.section>
 
           <motion.section
