@@ -10,12 +10,22 @@ import BackgroundManager from '../components/BackgroundManager';
 import ColorPicker from '../components/ColorPicker';
 import GalleryGrid from '../components/GalleryGrid';
 
+const sectionsMap = [
+  { id: 'home', label: '<>' },
+  { id: 'img', label: 'img' },
+  { id: 'vid', label: 'vid' },
+  { id: 'amour', label: '<3' },
+  { id: 'footer', label: '</>' },
+];
+
 function Home() {
   const [activeSection, setActiveSection] = useState('');
   const [bgColor, setBgColor] = useState('#C0D8D8'); // couleur initiale
 
   useEffect(() => {
     const sections = document.querySelectorAll('section');
+    const scrollContainer = document.querySelector(`.${styles.scrollContainer}`);
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -24,7 +34,10 @@ function Home() {
           }
         });
       },
-      { threshold: 0.6 }
+      {
+        root: scrollContainer, // 👈 important : observer ce conteneur
+        threshold: 0.3,        // plus sensible
+      }
     );
 
     sections.forEach((section) => observer.observe(section));
@@ -46,22 +59,21 @@ function Home() {
 
       <div className={styles.mapWrapper}>
         <nav className={styles.sidebar}>
-          {['<>', 'img', 'vid','<3', '</>'].map((id) => (
+          {sectionsMap.map(({ id, label }) => (
             <a
               key={id}
               href={`#${id}`}
               onClick={(e) => handleNavClick(e, id)}
               className={activeSection === id ? styles.activeLink : styles.link}
             >
-              {id}
+              {label}
             </a>
           ))}
         </nav>
 
         <div className={styles.scrollContainer}>
-
-          {/* HEADER FULLSCREEN NORMAL */}
-          <section id="<>" className={styles.fullscreenSection}>
+          {/* HEADER FULLSCREEN */}
+          <section id="home" className={styles.fullscreenSection}>
             <div className={styles.mainContainer}>
               <div className={styles.contentOverlay}>
                 <h1 className={styles.title}>
@@ -80,47 +92,19 @@ function Home() {
             </div>
           </section>
 
-          <motion.section
-            id="img"
-            className={styles.normalSection}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-          >
+          <motion.section id="img" className={styles.normalSection}>
             <GalleryBlock />
           </motion.section>
 
-          <motion.section
-            id="vid"
-            className={styles.normalSection}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-          >
+          <motion.section id="vid" className={styles.normalSection}>
             <VideoGallery />
           </motion.section>
 
-          <motion.section
-            id="<3"
-            className={styles.normalSection}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-          >
+          <motion.section id="amour" className={styles.normalSection}>
             <GalleryGrid />
           </motion.section>
 
-          <motion.section
-            id="</>"
-            className={`${styles.normalSection} ${styles.sectionFooter}`}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-          >
+          <motion.section id="footer" className={`${styles.normalSection} ${styles.sectionFooter}`}>
             <Footer />
           </motion.section>
         </div>
