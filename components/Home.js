@@ -24,7 +24,7 @@ function Home() {
           }
         });
       },
-      { threshold: 0.6 }
+      { threshold: 0.05 }
     );
 
     sections.forEach((section) => observer.observe(section));
