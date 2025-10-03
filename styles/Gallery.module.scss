@@ -1,0 +1,355 @@
+@import "breakpoints";
+@import "variables";
+
+/* WRAPPER GLOBAL */
+.wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* HEADER */
+/* header en grille 3 colonnes : back | title centré | ghost */
+.header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.back { justify-self: start; }
+
+.siteTitle {
+  justify-self: center;
+  margin: 0;
+  line-height: 1;
+  /* empêche l’image de dépasser en responsive */
+  img { display: block; max-width: clamp(160px, 28vw, 320px); height: auto; }
+}
+
+.headerGhost { justify-self: end; width: 44px; height: 1px; } /* taille ~ au bouton back */
+
+/* utilitaire accessibilité */
+.srOnly {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0);
+  white-space: nowrap; border: 0;
+}
+
+
+.back {
+  color: $color-black;
+  text-decoration: none;
+  font-weight: 600;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+
+  &:hover { opacity: 1; }
+  &:focus-visible {
+    outline: 2px solid #000;
+    outline-offset: 2px;
+  }
+}
+
+.title {
+  font-size: clamp(28px, 4vw, 44px);
+  margin: 0;
+}
+
+.sub {
+  color: #666;
+  margin: 6px 0 12px;
+  font-size: 14px;
+}
+
+/* ────────────────────────────────────────────────────────────── */
+/* TABS (collections)                                             */
+/* ────────────────────────────────────────────────────────────── */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0 16px;
+}
+
+/* Bouton onglet */
+.tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  /* zone cliquable confortable */
+  min-height: 38px;
+  min-width: 42px;
+  padding: 9px 14px;
+
+  border-radius: 5px;
+  border: 2px solid #000;
+  background: #fff;
+  color: #111;
+  font: inherit;
+  cursor: pointer;
+  user-select: none;
+
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.06s ease;
+
+  &:hover { border-color: #cfcfcf; }
+  &:active { transform: translateY(1px); }
+
+  &:focus-visible {
+    outline: 2px solid #111;
+    outline-offset: 2px;
+  }
+
+  /* état désactivé (si besoin) */
+  &:disabled,
+  &[aria-disabled="true"] {
+    opacity: .5;
+    cursor: not-allowed;
+  }
+}
+
+/* Onglet actif */
+.tabActive {
+  background: #111;
+  color: #fff;
+  border-color: #111;
+
+  &:focus-visible {
+    outline-color: #111;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────── */
+/* CARTE COLLECTION                                               */
+/* ────────────────────────────────────────────────────────────── */
+.card {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+  background: #000; /* fond noir */
+  border: 1px solid #f0f0f0;
+  border-radius: 5px;
+  overflow: hidden;
+
+  @include respond(tablet) {
+    grid-template-columns: 1.1fr 2fr;
+    border-radius: 5px;
+  }
+}
+
+.coverCol {
+  position: relative;
+  min-height: 300px;
+}
+
+.coverImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.coverOverlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 16px;
+  background-color: rgba(0, 0, 0, 0.2); /* noir transparent */
+  color: #fff;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 12px;
+  opacity: 0.9;
+  margin-bottom: 4px;
+}
+
+.coverTitle {
+  margin: 0;
+  font-size: clamp(22px, 3vw, 30px);
+  color: #fff;
+}
+
+.detailCol {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #000;
+
+  @include respond(tablet) {
+    padding: 24px 28px;
+  }
+}
+
+.desc {
+  color: #cfcfcf;
+  margin: 0 0 14px 0;
+}
+
+/* ────────────────────────────────────────────────────────────── */
+/* GRID PHOTOS                                                    */
+/* ────────────────────────────────────────────────────────────── */
+.grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+
+  @media (min-width: 560px) { grid-template-columns: repeat(3, 1fr); }
+  @include respond(tablet) { gap: 14px; }
+}
+
+/* Bouton vignette */
+.thumb {
+  position: relative;
+  display: block;
+  border: 0;
+  padding: 0;
+  background: none;
+  border-radius: 5px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform: scale(1);
+    // transition: transform 0.2s ease;
+  }
+
+  &:hover img { transform: scale(1.02); }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,.06);
+    border-radius: 0;
+    pointer-events: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+  }
+}
+
+.meta {
+  color: #9a9a9a;
+  font-size: 13px;
+  margin-top: 12px;
+}
+
+/* ────────────────────────────────────────────────────────────── */
+/* LIGHTBOX (Framer Motion shared layout)                         */
+/* ────────────────────────────────────────────────────────────── */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .75);
+  backdrop-filter: blur(2px);
+  z-index: 1000;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: 1001;
+
+  /* IMPORTANT: pour que les boutons soient cliquables */
+  pointer-events: auto;
+}
+
+/* Frame contenant l’image agrandie */
+.modalFrame {
+  width: min(92vw, 1200px);
+  max-height: 84vh;
+  border-radius: 5px;
+  overflow: hidden;
+  pointer-events: auto; /* clics autorisés à l’intérieur */
+  box-shadow: 0 20px 80px rgba(0,0,0,.5);
+  background: #000; /* évite le flash blanc pendant l’anim */
+}
+
+.modalImg {
+  width: 100%;
+  height: 100%;
+  max-height: 84vh;
+  object-fit: contain;
+  background: #000;
+}
+
+/* ────────────────────────────────────────────────────────────── */
+/* BOUTONS DE CONTRÔLE MODALE (prev / next / close)               */
+/* ────────────────────────────────────────────────────────────── */
+.ctrl {
+  position: fixed;
+  z-index: 1002; /* au-dessus du backdrop et de l’image */
+  display: grid;
+  place-items: center;
+
+  /* hit-area confortable */
+  width: 44px;
+  height: 44px;
+  border-radius: 0;
+
+  border: 0;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+
+  /* transitions douces (respecte reduced motion) */
+//   transition: background .2s ease, transform .06s ease;
+
+  &:hover { color: darken($color: #fff, $amount: 50%); }
+//   &:active { transform: translateY(1px); }
+
+  &:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+  }
+
+  /* accessible disabled */
+  &:disabled,
+  &[aria-disabled="true"] {
+    opacity: .5;
+    cursor: not-allowed;
+  }
+}
+
+.close { top: 16px; right: 16px; font-size: 22px; }
+.prev  { left: 16px; top: 50%; font-size: 26px; }
+.next  { right: 16px; top: 50%; font-size: 26px; }
+
+.counter {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #eee;
+  font-size: 13px;
+  text-shadow: 0 1px 2px rgba(0,0,0,.6);
+  z-index: 1002;
+}
+
+/* ────────────────────────────────────────────────────────────── */
+/* RÉDUCTIONS D’ANIMATIONS (accessibilité)                        */
+/* ────────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .tab,
+  .thumb img,
+  .ctrl {
+    transition: none !important;
+  }
+}
