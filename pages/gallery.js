@@ -28,7 +28,7 @@ const COLLECTIONS = [
     id: "paysages",
     title: "Paysages",
     description: "Horizons, montagnes et grands espaces.",
-    cover: "/img/parisjetaime11.jpg",
+    cover: "/img/parisjetaime24.png",
      photos: [
       "/img/parisjetaime10.jpg",
       "/img/parisjetaime23.webp",
