@@ -102,7 +102,7 @@ export default function GalleryPage() {
 
       <div className={styles.wrap}>
         <header className={styles.header}>
-            <Link href="/" className={styles.back} aria-label="Retour à l’accueil">← Accueil</Link>
+            {/* <Link href="/" className={styles.back} aria-label="Retour à l’accueil">← Accueil</Link> */}
 
             {/* H1 = élément sémantique principal. 
                 Le texte est en "sr-only" pour les lecteurs d’écran,
@@ -110,35 +110,20 @@ export default function GalleryPage() {
             <h1 className={styles.siteTitle}>
                 <span className={styles.srOnly}>Galerie — Paname Studio</span>
                 <Image
-                src="/img/logo-paname.svg"   // <-- ton fichier logo
-                alt=""                         // <-- décoratif (pas de doublon vocal)
+                src="/img/image-studio-logo.png"   // <-- ton fichier logo
+                alt="Paname Studio images Collection"                         // <-- décoratif (pas de doublon vocal)
                 aria-hidden="true"
-                width={350}                    // <-- adapte
-                height={110}                    // <-- adapte
+                width={90}                    // <-- adapte
+                height={90}                    // <-- adapte
                 priority
                 />
             </h1>
-
-            {/* fantôme pour équilibrer la grille et garder le h1 centré */}
-            <span aria-hidden className={styles.headerGhost} />
         </header>
         <p className={styles.sub}>
-          Collections présentées comme des salles de musée — ouverture modale animée.
+            Découvrez mes collections de photos. Chaque section rassemble des images autour d’un même regard pour parcourir simplement mes instants uniques.
         </p>
 
-        {/* Onglets */}
-        <nav className={styles.tabs} aria-label="Collections">
-          {COLLECTIONS.map(c => (
-            <button
-              key={c.id}
-              onClick={() => setActiveId(c.id)}
-              className={`${styles.tab} ${activeId === c.id ? styles.tabActive : ""}`}
-              aria-pressed={activeId === c.id}
-            >
-              {c.title}
-            </button>
-          ))}
-        </nav>
+        
 
         {/* Carte + grille */}
         <section className={styles.card}>
@@ -199,6 +184,19 @@ export default function GalleryPage() {
             </AnimatePresence>
           </LayoutGroup>
         </section>
+        {/* Onglets */}
+        <nav className={styles.tabs} aria-label="Collections">
+          {COLLECTIONS.map(c => (
+            <button
+              key={c.id}
+              onClick={() => setActiveId(c.id)}
+              className={`${styles.tab} ${activeId === c.id ? styles.tabActive : ""}`}
+              aria-pressed={activeId === c.id}
+            >
+              {c.title}
+            </button>
+          ))}
+        </nav>
       </div>
     </>
   );

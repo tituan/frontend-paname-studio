@@ -52,4 +52,33 @@
 }
 
 
-  
+  .btnGallery {
+  display: block;
+
+  padding: 10px 16px;
+  border: 1px solid $color-black; // ou #111 si pas de variable
+  border-radius: 5px;
+
+  background: #fff;
+  color: $color-black; // ou #111
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  line-height: 1;
+
+  transition: background .15s ease, opacity .15s ease;
+
+  &:hover { background: #f7f7f7; }
+  &:focus-visible {
+    outline: 2px solid $color-black;
+    outline-offset: 2px;
+  }
+}
+
+.seeMoreContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  padding: 20px;
+}

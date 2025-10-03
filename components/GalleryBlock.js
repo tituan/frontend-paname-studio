@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from "next/link";
 import styles from '../styles/GalleryBlock.module.scss';
 
 const images = [
@@ -28,6 +29,10 @@ export default function GalleryBlock() {
           />
         </div>
       ))}
+      <div className={styles.seeMoreContainer}>
+        <Link href="/gallery" className={styles.btnGallery}>Voir la galerie</Link>
+      </div>
+     
     </div>
   );
 }
