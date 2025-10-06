@@ -96,7 +96,7 @@ export default function VideoGallery() {
   };
 
   return (
-    <>
+    <div className={styles.galleryVideo}>
     <div className={styles.galleryContent}>
       <h2 className={styles.galleryLogo}>
         <Image
@@ -156,6 +156,6 @@ export default function VideoGallery() {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
