@@ -9,6 +9,24 @@ import styles from "../styles/Gallery.module.scss";
 // —— Données d’exemple (pointent vers /public/...) ——
 const COLLECTIONS = [
   {
+    id: "carnon",
+    title: "COAST",
+    subTitle:"Carnon",
+    description: "Le vent s’apaise, la mer respire, et quelques silhouettes glissent en stand up paddle sous une lueur de lumière renaissante. Une série capturant le retour à la normalité,fragile, apaisé, presque suspendu entre ciel, mer et horizon retrouvé.",
+    year: 2025,
+    cover: "/img/series/carnon/carnon-05.webp",
+    photos: [
+      "/img/series/carnon/carnon-02.webp",
+      "/img/series/carnon/carnon-03.webp",
+      "/img/series/carnon/carnon-01.webp",
+      "/img/series/carnon/carnon-07.webp",
+      "/img/series/carnon/carnon-04.webp",
+      "/img/series/carnon/carnon-06.webp",
+      "/img/series/carnon/carnon-05.webp",
+      
+    ],
+  },
+  {
     id: "city13",
     title: "PARIS 13",
     subTitle:"Olympiades",
@@ -29,23 +47,7 @@ const COLLECTIONS = [
       // "/img/series/city13/city13-08-min.webp",
     ],
   },
-  {
-    id: "paysages",
-    title: "Paysages",
-    subTitle:"Olympiades",
-    description: "Horizons, montagnes et grands espaces.",
-    year: 2023,
-    cover: "/img/parisjetaime24.png",
-    photos: [
-      "/img/parisjetaime10.jpg",
-      "/img/parisjetaime23.webp",
-      "/img/parisjetaime20.webp",
-      "/img/parisjetaime11.jpg",
-      "/img/parisjetaime13.png",
-      "/img/parisjetaime22.webp",
-      "/img/parisjetaime24.png",
-    ],
-  },
+  
   {
     id: "noirblanc",
     title: "Noir & Blanc",

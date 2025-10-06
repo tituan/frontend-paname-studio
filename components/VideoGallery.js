@@ -1,16 +1,17 @@
 import React, { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
 import styles from '../styles/VideoGallery.module.scss';
 
 const videoList = [
-  {
-    id: 4,
-    src: '/videos/dji-athenes.mp4',
-    poster: '/img/poster-athenes.png',
-    title: 'Acropolis',
-    description: 'Survol de l’Acropole au coucher du soleil.',
-    city: 'Athènes',
-    year: '2025',
-  },
+  // {
+  //   id: 4,
+  //   src: '/videos/dji-athenes.mp4',
+  //   poster: '/img/poster-athenes.png',
+  //   title: 'Acropolis',
+  //   description: 'Survol de l’Acropole au coucher du soleil.',
+  //   city: 'Athènes',
+  //   year: '2025',
+  // },
   {
     id: 3,
     src: '/videos/dji-villeneuve.mp4',
@@ -38,24 +39,24 @@ const videoList = [
     city: 'Mèze',
     year: '2025',
   },
-  {
-    id: 5,
-    src: '/videos/dji-detroit-2.mp4',
-    poster: '/img/poster-detroit-2.png',
-    title: 'Night Ride',
-    description: 'Survol nocturne des lumières de Détroit.',
-    city: 'Détroit',
-    year: '2025',
-  },
-  {
-    id: 6,
-    src: '/videos/dji-toronto.mp4',
-    poster: '/img/poster-toronto.png',
-    title: 'Higher Toronto',
-    description: 'Vue aérienne sur la skyline de Toronto.',
-    city: 'Toronto',
-    year: '2025',
-  },
+  // {
+  //   id: 5,
+  //   src: '/videos/dji-detroit-2.mp4',
+  //   poster: '/img/poster-detroit-2.png',
+  //   title: 'Night Ride',
+  //   description: 'Survol nocturne des lumières de Détroit.',
+  //   city: 'Détroit',
+  //   year: '2025',
+  // },
+  // {
+  //   id: 6,
+  //   src: '/videos/dji-toronto.mp4',
+  //   poster: '/img/poster-toronto.png',
+  //   title: 'Higher Toronto',
+  //   description: 'Vue aérienne sur la skyline de Toronto.',
+  //   city: 'Toronto',
+  //   year: '2025',
+  // },
 ];
 
 export default function VideoGallery() {
@@ -96,6 +97,18 @@ export default function VideoGallery() {
 
   return (
     <>
+    <div className={styles.galleryContent}>
+      <h2 className={styles.galleryLogo}>
+        <Image
+          src="/img/video-studio-logo-trans.png"
+          alt="Video Studio — logo"
+          width={140}
+          height={140}
+          priority
+          className={styles.logoImg}
+        />
+      </h2>
+    </div>
       <div className={styles.galleryContainer}>
         {videoList.map((video) => (
           <div

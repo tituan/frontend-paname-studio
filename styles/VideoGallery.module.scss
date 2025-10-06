@@ -1,12 +1,34 @@
 @import "breakpoints";
 @import "variables";
 
+.galleryContent {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  @include respond(tablet) {
+    margin-bottom: 30px;
+  }
+}
+
+.logoImg {
+  display: block;
+  height: auto;
+  max-width: 160px;
+  cursor: pointer;
+  transition: transform .25s ease;
+
+  &:hover {
+    transform: scale(1.03);
+  }
+}
+
 .galleryContainer {
     gap: 15px;
     display: flex;
     flex-wrap: wrap;
     padding: 20px;
-    height: 100vh;
+    height: auto;
     justify-content: center;
     align-content: center;
     box-sizing: border-box;

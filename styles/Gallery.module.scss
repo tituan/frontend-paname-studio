@@ -59,9 +59,13 @@
 .sub {
   color: #000;
   font-family: 'Share Tech Mono', monospace;
-  margin: 30px 0 30px;
+  margin: 30px 0;;
   font-size: 12px;
+  line-height: 1.8;
   max-width: 60%;
+  @include respond(tablet) {
+    font-size: 14px;
+  }
 }
 
 /* ────────────────────────────────────────────────────────────── */
@@ -87,9 +91,6 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
-// text-transform: uppercase;
-  /* zone cliquable confortable */
   min-height: 90px;
   width: 90px;
   padding: 7px;;
@@ -369,16 +370,20 @@ font-size: 14px;
 }
 
 .seriesFooterTitle {
-  margin: 0 0 6px;
+  margin: 0 0 10px;
   font-size: clamp(1.2rem, 1rem + 1vw, 1.6rem);
   line-height: 1.2;
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Share Tech Mono', monospace;
+  color: #000;
 }
 
 .seriesFooterDesc {
   margin: 0;
-  font-size: clamp(0.98rem, 0.9rem + .3vw, 1.05rem);
-  line-height: 1.7;
-  opacity: .9;
-  font-family: 'Barlow', sans-serif;
+  font-size: 12px;
+  line-height: 1.8;
+  font-family: 'Share Tech Mono', monospace;
+  color: #000;
+  @include respond(tablet) {
+    font-size: 14px;
+  }
 }

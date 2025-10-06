@@ -46,7 +46,7 @@ function Home() {
 
       <div className={styles.mapWrapper}>
         <nav className={styles.sidebar}>
-          {['<>', 'img', 'vid', 'amour', '</>'].map((id) => (
+          {['<>', 'img', 'vid', '</>'].map((id) => (
             <a
               key={id}
               href={`#${id}`}
@@ -102,7 +102,7 @@ function Home() {
             <VideoGallery />
           </motion.section>
 
-          <motion.section
+          {/* <motion.section
             id="amour"
             className={styles.normalSection}
             initial={{ opacity: 0, y: 50 }}
@@ -111,7 +111,7 @@ function Home() {
             transition={{ duration: 0.6, ease: 'easeOut' }}
           >
             <GalleryGrid />
-          </motion.section>
+          </motion.section> */}
 
           <motion.section
             id="</>"
