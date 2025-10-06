@@ -122,7 +122,7 @@ export default function GalleryPage() {
 
       <div className={styles.wrap}>
         <header className={styles.header}>
-          {/* <Link href="/" className={styles.back} aria-label="Retour à l’accueil">← Accueil</Link> */}
+          {/* <Link href="/" className={styles.back} aria-label="Retour à l’accueil"> </Link> */}
 
           {/* H1 principal : texte sr-only + logo décoratif */}
           <h1 className={styles.siteTitle}>

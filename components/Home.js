@@ -74,7 +74,7 @@ function Home() {
                     className={styles.panameStudioLogo}
                   />
                 </h1>
-                <h2 className={styles.subTitle}>Création digitale</h2>
+                <h2 className={styles.subTitle}>Création.digitale.photo.vidéo</h2>
               </div>
               <HeaderVideo />
             </div>
