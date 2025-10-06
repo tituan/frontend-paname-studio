@@ -6,30 +6,37 @@ import { useMemo, useState, useEffect } from "react";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import styles from "../styles/Gallery.module.scss";
 
-// —— Données d’exemple (pointent vers /public/img/collections/...) ——
+// —— Données d’exemple (pointent vers /public/...) ——
 const COLLECTIONS = [
   {
-    id: "portraits",
-    title: "Portraits",
-    description: "Regards, expressions et personnalités.",
-    cover: "/img/parisjetaime4.png",
+    id: "city13",
+    title: "PARIS 13",
+    subTitle:"Olympiades",
+    description: "Un soir d’été, promenade au cœur des Olympiades, ensemble emblématique d’Italie 13 (1969-1977) imaginé par l’architecte Michel Holley. Passerelles, dalles et esplanades composent une micro-ville où se dressent les tours Sapporo, Mexico, Athènes, Helsinki, Cortina et Tokyo, auxquelles répondent Londres et Anvers, puis les barres Rome, Grenoble et Squaw Valley. Entre la galerie Mercure, le centre Oslo et les équipements de quartier, cette série capture les lignes, la lumière et la vie qui animent ce paysage moderniste.",
+    year: 2025,
+    cover: "/img/series/city13/city13-10-min.jpg",
     photos: [
-      "/img/parisjetaime4.png",
-      "/img/parisjetaime2.png",
-      "/img/parisjetaime6.png",
-      "/img/parisjetaime5.png",
-      "/img/parisjetaime7.png",
-      "/img/parisjetaime8.png",
-      "/img/parisjetaime1.png",
-      
+      "/img/series/city13/city13-01-min.webp",
+      "/img/series/city13/city13-02-min.webp",
+      "/img/series/city13/city13-03-min.webp",
+      "/img/series/city13/city13-04-min.webp",
+      "/img/series/city13/city13-05-min.webp",
+      "/img/series/city13/city13-06-min.webp",
+      "/img/series/city13/city13-07-min.webp",
+      "/img/series/city13/city13-09-min.jpg",
+      "/img/series/city13/city13-10-min.jpg",
+      "/img/series/city13/city13-11-min.jpg",
+      // "/img/series/city13/city13-08-min.webp",
     ],
   },
   {
     id: "paysages",
     title: "Paysages",
+    subTitle:"Olympiades",
     description: "Horizons, montagnes et grands espaces.",
+    year: 2023,
     cover: "/img/parisjetaime24.png",
-     photos: [
+    photos: [
       "/img/parisjetaime10.jpg",
       "/img/parisjetaime23.webp",
       "/img/parisjetaime20.webp",
@@ -39,25 +46,31 @@ const COLLECTIONS = [
       "/img/parisjetaime24.png",
     ],
   },
-//   {
-//     id: "noirblanc",
-//     title: "Noir & Blanc",
-//     description: "Contrastes intenses et minimalisme.",
-//     cover: "/img/parisjetaime11.png",
-//     photos: [
-//       "/img/collections/noirblanc/b1.jpg",
-//       "/img/collections/noirblanc/b2.jpg",
-//       "/img/collections/noirblanc/b3.jpg",
-//       "/img/collections/noirblanc/b4.jpg",
-//       "/img/collections/noirblanc/b5.jpg",
-//       "/img/collections/noirblanc/b6.jpg",
-//     ],
-//   },
+  {
+    id: "noirblanc",
+    title: "Noir & Blanc",
+    subTitle:"Olympiades",
+    description: "Contrastes intenses et minimalisme.",
+    year: 2022,
+    cover: "/img/parisjetaime13.png",
+    photos: [
+      "/img/parisjetaime10.jpg",
+      "/img/parisjetaime23.webp",
+      "/img/parisjetaime20.webp",
+      "/img/parisjetaime11.jpg",
+      "/img/parisjetaime13.png",
+      "/img/parisjetaime22.webp",
+      "/img/parisjetaime24.png",
+    ],
+  },
 ];
 
 export default function GalleryPage() {
   const [activeId, setActiveId] = useState(COLLECTIONS[0].id);
-  const active = useMemo(() => COLLECTIONS.find(c => c.id === activeId), [activeId]);
+  const active = useMemo(
+    () => COLLECTIONS.find((c) => c.id === activeId),
+    [activeId]
+  );
 
   // { collectionId, index, src }
   const [selected, setSelected] = useState(null);
@@ -67,23 +80,25 @@ export default function GalleryPage() {
     if (!selected) return;
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    return () => { document.body.style.overflow = prev; };
+    return () => {
+      document.body.style.overflow = prev;
+    };
   }, [selected]);
 
   // clavier (Esc / ← / →)
   useEffect(() => {
     if (!selected) return;
-    const coll = COLLECTIONS.find(c => c.id === selected.collectionId);
+    const coll = COLLECTIONS.find((c) => c.id === selected.collectionId);
     const onKey = (e) => {
       if (e.key === "Escape") setSelected(null);
       if (e.key === "ArrowRight") {
-        setSelected(s => {
+        setSelected((s) => {
           const nextIndex = (s.index + 1) % coll.photos.length;
           return { ...s, index: nextIndex, src: coll.photos[nextIndex] };
         });
       }
       if (e.key === "ArrowLeft") {
-        setSelected(s => {
+        setSelected((s) => {
           const nextIndex = (s.index - 1 + coll.photos.length) % coll.photos.length;
           return { ...s, index: nextIndex, src: coll.photos[nextIndex] };
         });
@@ -97,47 +112,66 @@ export default function GalleryPage() {
     <>
       <Head>
         <title>Galerie — Paname Studio</title>
-        <meta name="description" content="Galerie photo avec transitions Framer Motion (shared layout)" />
+        <meta
+          name="description"
+          content="Galerie photo Paname Studio : séries thématiques (portraits, paysages, noir & blanc). Navigation immersive avec ouverture plein écran."
+        />
       </Head>
 
       <div className={styles.wrap}>
         <header className={styles.header}>
-            {/* <Link href="/" className={styles.back} aria-label="Retour à l’accueil">← Accueil</Link> */}
+          {/* <Link href="/" className={styles.back} aria-label="Retour à l’accueil">← Accueil</Link> */}
 
-            {/* H1 = élément sémantique principal. 
-                Le texte est en "sr-only" pour les lecteurs d’écran,
-                l’image du logo est décorative (alt vide + aria-hidden). */}
-            <h1 className={styles.siteTitle}>
-                <span className={styles.srOnly}>Galerie — Paname Studio</span>
-                <Image
-                src="/img/image-studio-logo.png"   // <-- ton fichier logo
-                alt="Paname Studio images Collection"                         // <-- décoratif (pas de doublon vocal)
-                aria-hidden="true"
-                width={90}                    // <-- adapte
-                height={90}                    // <-- adapte
-                priority
-                />
-            </h1>
+          {/* H1 principal : texte sr-only + logo décoratif */}
+          <h1 className={styles.siteTitle}>
+            <span className={styles.srOnly}>Galerie — Paname Studio</span>
+            <Image
+              src="/img/image-studio-logo.png"
+              alt="Paname Studio images Collection"
+              aria-hidden="true"
+              width={90}
+              height={90}
+              priority
+            />
+          </h1>
         </header>
+
         <p className={styles.sub}>
-            Découvrez mes collections de photos. Chaque section rassemble des images autour d’un même regard pour parcourir simplement mes instants uniques.
+          Découvrez mes collections de photos. Chaque section rassemble des images autour d’un
+          même regard pour parcourir simplement mes instants uniques.
         </p>
 
-        
+        <nav className={styles.tabs} aria-label="Collections">
+          {COLLECTIONS.map((c) => (
+            <button
+              key={c.id}
+              onClick={() => setActiveId(c.id)}
+              className={`${styles.tab} ${activeId === c.id ? styles.tabActive : ""}`}
+              aria-pressed={activeId === c.id}
+            >
+              {c.title}
+            </button>
+          ))}
+        </nav>
 
         {/* Carte + grille */}
         <section className={styles.card}>
           <div className={styles.coverCol}>
-            <img src={active.cover} alt={`Couverture ${active.title}`} className={styles.coverImg} />
+            <img
+              src={active.cover}
+              alt={`Couverture ${active.title}`}
+              className={styles.coverImg}
+              loading="eager"
+            />
             <div className={styles.coverOverlay}>
-              <span className={styles.badge}>Collection</span>
+              <span className={styles.badge}>Série</span>
               <h2 className={styles.coverTitle}>{active.title}</h2>
             </div>
           </div>
 
           <LayoutGroup id="gallery">
             <div className={styles.detailCol}>
-              <p className={styles.desc}>{active.description}</p>
+              {/* Description retirée d'ici pour l'afficher sous la carte */}
 
               <div className={styles.grid}>
                 {active.photos.map((src, i) => {
@@ -146,7 +180,9 @@ export default function GalleryPage() {
                     <motion.button
                       key={src}
                       layoutId={layoutId}
-                      onClick={() => setSelected({ collectionId: active.id, index: i, src })}
+                      onClick={() =>
+                        setSelected({ collectionId: active.id, index: i, src })
+                      }
                       className={styles.thumb}
                       whileHover={{ scale: 1.02 }}
                     >
@@ -154,6 +190,7 @@ export default function GalleryPage() {
                         src={src}
                         alt={`${active.title} ${i + 1}`}
                         layoutId={`img-${layoutId}`}
+                        loading={i < 6 ? "eager" : "lazy"}
                       />
                     </motion.button>
                   );
@@ -184,26 +221,23 @@ export default function GalleryPage() {
             </AnimatePresence>
           </LayoutGroup>
         </section>
-        {/* Onglets */}
-        <nav className={styles.tabs} aria-label="Collections">
-          {COLLECTIONS.map(c => (
-            <button
-              key={c.id}
-              onClick={() => setActiveId(c.id)}
-              className={`${styles.tab} ${activeId === c.id ? styles.tabActive : ""}`}
-              aria-pressed={activeId === c.id}
-            >
-              {c.title}
-            </button>
-          ))}
-        </nav>
+
+        {/* ———————————— Titre + Description sous la carte (section styles.card) ———————————— */}
+        <section className={styles.seriesFooter}>
+          <h2 className={styles.seriesFooterTitle}>
+            {active.subTitle}
+            {active.year ? ` — ${active.year}` : ""}
+          </h2>
+          <p className={styles.seriesFooterDesc}>{active.description}</p>
+        </section>
+        {/* /Onglets */}
       </div>
     </>
   );
 }
 
 function Modal({ selected, setSelected }) {
-  const coll = COLLECTIONS.find(c => c.id === selected.collectionId);
+  const coll = COLLECTIONS.find((c) => c.id === selected.collectionId);
   const layoutId = `${selected.collectionId}-${selected.index}`;
 
   const go = (dir) => {
@@ -223,11 +257,31 @@ function Modal({ selected, setSelected }) {
         />
       </motion.div>
 
-      <button aria-label="Fermer" onClick={() => setSelected(null)} className={`${styles.ctrl} ${styles.close}`}>✕</button>
-      <button aria-label="Précédente" onClick={() => go(-1)} className={`${styles.ctrl} ${styles.prev}`}>‹</button>
-      <button aria-label="Suivante" onClick={() => go(1)} className={`${styles.ctrl} ${styles.next}`}>›</button>
+      <button
+        aria-label="Fermer"
+        onClick={() => setSelected(null)}
+        className={`${styles.ctrl} ${styles.close}`}
+      >
+        ✕
+      </button>
+      <button
+        aria-label="Précédente"
+        onClick={() => go(-1)}
+        className={`${styles.ctrl} ${styles.prev}`}
+      >
+        ‹
+      </button>
+      <button
+        aria-label="Suivante"
+        onClick={() => go(1)}
+        className={`${styles.ctrl} ${styles.next}`}
+      >
+        ›
+      </button>
 
-      <div className={styles.counter}>{selected.index + 1} / {coll.photos.length}</div>
+      <div className={styles.counter}>
+        {selected.index + 1} / {coll.photos.length}
+      </div>
     </motion.div>
   );
 }

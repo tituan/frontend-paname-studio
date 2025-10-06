@@ -72,6 +72,13 @@
   flex-wrap: wrap;
   gap: 8px;
   margin: 12px 0 16px;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  padding: 10px 0;
+  @include respond(tablet) {
+    padding: 15px 0;
+    margin: 20px 0 40px;
+  }
 }
 
 /* Bouton onglet */
@@ -83,12 +90,12 @@
 
 // text-transform: uppercase;
   /* zone cliquable confortable */
-  min-height: 38px;
-  width: 100px;
-  padding: 9px 14px;
+  min-height: 90px;
+  width: 90px;
+  padding: 7px;;
    
-  border-radius: 5px;
-  border: 3px solid #000;
+  border-radius: 15px;
+  border: 2px solid #000;
   background: #fff;
   color: #111;
   font: inherit;
@@ -159,7 +166,7 @@ font-size: 14px;
   position: absolute;
   inset: auto 0 0 0;
   padding: 16px;
-  background-color: rgba(0, 0, 0, 0.2); /* noir transparent */
+  background-color: rgba(0, 0, 0, 0.6); /* noir transparent */
   color: #fff;
 }
 
@@ -355,4 +362,23 @@ font-size: 14px;
   .ctrl {
     transition: none !important;
   }
+}
+
+.seriesFooter {
+  margin: 40px auto 0;
+}
+
+.seriesFooterTitle {
+  margin: 0 0 6px;
+  font-size: clamp(1.2rem, 1rem + 1vw, 1.6rem);
+  line-height: 1.2;
+  font-family: 'Barlow', sans-serif;
+}
+
+.seriesFooterDesc {
+  margin: 0;
+  font-size: clamp(0.98rem, 0.9rem + .3vw, 1.05rem);
+  line-height: 1.7;
+  opacity: .9;
+  font-family: 'Barlow', sans-serif;
 }
