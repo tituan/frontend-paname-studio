@@ -48,23 +48,23 @@ const COLLECTIONS = [
     ],
   },
   
-  {
-    id: "noirblanc",
-    title: "Noir & Blanc",
-    subTitle:"Olympiades",
-    description: "Contrastes intenses et minimalisme.",
-    year: 2022,
-    cover: "/img/parisjetaime13.png",
-    photos: [
-      "/img/parisjetaime10.jpg",
-      "/img/parisjetaime23.webp",
-      "/img/parisjetaime20.webp",
-      "/img/parisjetaime11.jpg",
-      "/img/parisjetaime13.png",
-      "/img/parisjetaime22.webp",
-      "/img/parisjetaime24.png",
-    ],
-  },
+  // {
+  //   id: "noirblanc",
+  //   title: "Noir & Blanc",
+  //   subTitle:"Olympiades",
+  //   description: "Contrastes intenses et minimalisme.",
+  //   year: 2022,
+  //   cover: "/img/parisjetaime13.png",
+  //   photos: [
+  //     "/img/parisjetaime10.jpg",
+  //     "/img/parisjetaime23.webp",
+  //     "/img/parisjetaime20.webp",
+  //     "/img/parisjetaime11.jpg",
+  //     "/img/parisjetaime13.png",
+  //     "/img/parisjetaime22.webp",
+  //     "/img/parisjetaime24.png",
+  //   ],
+  // },
 ];
 
 export default function GalleryPage() {
@@ -165,10 +165,10 @@ export default function GalleryPage() {
               className={styles.coverImg}
               loading="eager"
             />
-            <div className={styles.coverOverlay}>
+            {/* <div className={styles.coverOverlay}>
               <span className={styles.badge}>Série</span>
               <h2 className={styles.coverTitle}>{active.title}</h2>
-            </div>
+            </div> */}
           </div>
 
           <LayoutGroup id="gallery">
