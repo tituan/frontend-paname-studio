@@ -10,7 +10,6 @@
     justify-content: center;
     align-content: center;
     box-sizing: border-box;
-    // background: linear-gradient(to bottom, #ffffff 0%, #ffffff 30%, #C0D8D8 100%);
     @include respond(tablet) {
         gap: 25px;
     }

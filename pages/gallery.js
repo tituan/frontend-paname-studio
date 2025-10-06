@@ -111,10 +111,10 @@ export default function GalleryPage() {
   return (
     <>
       <Head>
-        <title>Galerie — Paname Studio</title>
+        <title>Galerie Image/Photo — Paname Studio</title>
         <meta
           name="description"
-          content="Galerie photo Paname Studio : séries thématiques (portraits, paysages, noir & blanc). Navigation immersive avec ouverture plein écran."
+          content="Découvrez la galerie photo Paname Studio : séries thématiques, portraits, paysages et noir & blanc. Une expérience immersive et plein écran pour explorer la photographie artistique à Paris et dans le monde entier."
         />
       </Head>
 
@@ -126,8 +126,8 @@ export default function GalleryPage() {
           <h1 className={styles.siteTitle}>
             <span className={styles.srOnly}>Galerie — Paname Studio</span>
             <Image
-              src="/img/image-studio-logo.png"
-              alt="Paname Studio images Collection"
+              src="/img/image-studio-trans-logo-02.png"
+              alt="Paname Studio images Séries"
               aria-hidden="true"
               width={90}
               height={90}

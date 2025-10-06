@@ -8,7 +8,7 @@
   align-items: center;
   gap: 1rem;
   width: 100%;
-  
+
   @include respond(tablet) {
     flex-direction: row;
     flex-wrap: wrap;
@@ -17,20 +17,28 @@
   }
 }
 
-.imageWrapper {
+/* ——— Logo au-dessus du texte ——— */
+.logoWrap {
   width: 100%;
-  max-width: 170px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 6px 0 12px;
+
   @include respond(tablet) {
-    max-width: 20%;
+    margin: 8px 0 16px;
   }
 }
+.logoImg {
+  display: block;
+  height: auto;
+  max-width: 160px;
+  cursor: pointer;
+  transition: transform .25s ease;
 
-.image {
-  transition: transform 0.3s ease;
-}
-
-.image:hover {
-  transform: scale(1.05);
+  &:hover {
+    transform: scale(1.03);
+  }
 }
 
 .galleryText {
@@ -42,43 +50,67 @@
   line-height: 1.5;
   font-family: 'Barlow', sans-serif;
   font-weight: 400;
+
   @include respond(tablet) {
     font-size: 20px;
     margin-bottom: 20px;
   }
+
   span {
     display: block;
   }
 }
 
+.imageWrapper {
+  width: 100%;
+  max-width: 170px;
 
-  .btnGallery {
-  display: block;
-
-  padding: 10px 16px;
-  border: 1px solid $color-black; // ou #111 si pas de variable
-  border-radius: 5px;
-
-  background: #fff;
-  color: $color-black; // ou #111
-  font-size: 12px;
-  font-weight: 600;
-  text-decoration: none;
-  line-height: 1;
-
-  transition: background .15s ease, opacity .15s ease;
-
-  &:hover { background: #f7f7f7; }
-  &:focus-visible {
-    outline: 2px solid $color-black;
-    outline-offset: 2px;
+  @include respond(tablet) {
+    max-width: 20%;
   }
 }
 
+.image {
+  transition: transform 0.3s ease;
+}
+.image:hover {
+  transform: scale(1.05);
+}
+
+/* ——— CTA “Voir la galerie” ——— */
 .seeMoreContainer {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100vw;
+  width: 100%; 
   padding: 20px;
+}
+
+.btnGallery {
+  display: block;
+  margin: 30px auto 0; 
+  padding: 10px 16px;
+  font-family: "Share Tech Mono", monospace;
+  color: black;
+  font-size: 8px;
+  font-weight: 500;
+  line-height: 1;
+
+  transition: background .15s ease, opacity .15s ease, transform .15s ease;
+
+  &:hover {
+    // background: #f7f7f7;
+    transform: translateY(-1px);
+  }
+  &:active {
+    transform: translateY(0);
+  }
+  &:focus-visible {
+    outline: 2px solid $color-black;
+    outline-offset: 3px;
+  }
+
+  @include respond(tablet) {
+    font-size: 12px;
+  }
 }

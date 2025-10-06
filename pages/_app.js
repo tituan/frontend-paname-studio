@@ -14,7 +14,7 @@ function App({ Component, pageProps }) {
         <title>Paname Studio – Créatif & Digital</title>
         <meta
           name="description"
-          content="Paname Studio est un studio créatif à Paris spécialisé en création web, identité visuelle, photo et vidéo. Donnez vie à votre univers digital avec style."
+          content="Paname Studio est un studio créatif basé à Paris -> Montpellier, spécialisé en création web, identité visuelle, photographie et production vidéo. Donnez vie à votre univers digital avec style, innovation et une signature visuelle unique."
         />
 
         {/* Favicon */}

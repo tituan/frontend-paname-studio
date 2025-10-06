@@ -41,8 +41,8 @@ function Home() {
 
   return (
     <div className={styles.pageContainer}>
-      <BackgroundManager color={bgColor} />
-      <ColorPicker onColorChange={setBgColor} />
+      {/* <BackgroundManager color={bgColor} /> */}
+      {/* <ColorPicker onColorChange={setBgColor} /> */}
 
       <div className={styles.mapWrapper}>
         <nav className={styles.sidebar}>

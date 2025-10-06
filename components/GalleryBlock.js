@@ -11,6 +11,21 @@ const images = [
 export default function GalleryBlock() {
   return (
     <div className={styles.galleryContainer}>
+
+      {/* Logo cliquable vers la galerie */}
+      <div className={styles.logoWrap}>
+        <Link href="/gallery" aria-label="Aller à la galerie">
+          <Image
+            src="/img/image-studio-trans-logo-02.png"
+            alt="Image Studio — logo"
+            width={140}
+            height={140}
+            priority
+            className={styles.logoImg}
+          />
+        </Link>
+      </div>
+
       <h2 className={styles.galleryText}>
         <span>L’image au service de la créativité</span>
         <span>Capter le réel, s’en inspirer pour créer</span>
@@ -20,7 +35,7 @@ export default function GalleryBlock() {
         <div key={i} className={styles.imageWrapper}>
           <Image
             src={src}
-            alt={`Photo ${i}`}
+            alt={`Photo ${i + 1}`}
             layout="responsive"
             width={800}
             height={800}
@@ -29,13 +44,13 @@ export default function GalleryBlock() {
           />
         </div>
       ))}
+
       <div className={styles.seeMoreContainer}>
-        <Link href="/gallery" className={styles.btnGallery}>Voir la galerie</Link>
+        <Link href="/gallery" legacyBehavior passHref>
+          <a className={styles.btnGallery}>La Galerie</a>
+        </Link>
       </div>
-     
+
     </div>
   );
 }
-
-
-
