@@ -14,7 +14,7 @@ function App({ Component, pageProps }) {
         <title>Paname Studio – Créatif & Digital</title>
         <meta
           name="description"
-          content="Paname Studio est un studio créatif basé à Paris -> Montpellier, spécialisé en création web, identité visuelle, photographie et production vidéo. Donnez vie à votre univers digital avec style, innovation et une signature visuelle unique."
+          content="Paname Studio est un studio créatif basé à Paris -> Montpellier, spécialisé en création web, identité visuelle, photographie et production vidéo. Donnez vie à votre univers digital avec style, innovation et une signature visuelle unique - Antoine BOISARD"
         />
 
         {/* Favicon */}
@@ -22,7 +22,7 @@ function App({ Component, pageProps }) {
 
         {/* Open Graph */}
         <meta property="og:title" content="Paname Studio – Créatif & Digital" />
-        <meta property="og:description" content="Studio créatif à Paris spécialisé en création de sites web, photographie, vidéo et identité visuelle." />
+        <meta property="og:description" content="Studio créatif à Paris spécialisé en création de sites web, photographie, vidéo et identité visuelle - Antoine BOISARD" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.paname-studio.fr/" />
         <meta property="og:image" content="https://www.paname-studio.fr/img/paname-studio-logo-01.png" />

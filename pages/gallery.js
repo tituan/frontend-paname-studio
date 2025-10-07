@@ -51,7 +51,7 @@ const COLLECTIONS = [
   },
   {
     id: "city13",
-    title: "PARIS 13",
+    title: "PARIS13",
     subTitle:"Olympiades",
     description: "Un soir d’été, promenade au cœur des Olympiades, ensemble emblématique d’Italie 13 imaginé par l’architecte Michel Holley. Passerelles, dalles et esplanades composent une micro-ville où se dressent les tours Sapporo, Mexico, Athènes... Cette série capture les lignes, la lumière et la vie qui animent ce paysage moderniste en plein Paris",
     year: 2025,
@@ -121,7 +121,7 @@ export default function GalleryPage() {
         <title>Galerie Image/Photo — Paname Studio</title>
         <meta
           name="description"
-          content="Découvrez la galerie photo Paname Studio : séries thématiques, portraits, paysages et noir & blanc. Une expérience immersive et plein écran pour explorer la photographie artistique à Paris et dans le monde entier."
+          content="Découvrez la galerie photo Paname Studio : séries thématiques, portraits, paysages et noir & blanc. Une expérience immersive et plein écran pour explorer la photographie artistique à Paris et dans le monde entier - Antoine BOISARD"
         />
       </Head>
 
@@ -213,7 +213,7 @@ export default function GalleryPage() {
               </div>
 
               <div className={styles.meta}>
-                {active.photos.length} photos · {active.title}
+                {active.photos.length} photos · {active.title} © 
               </div>
             </div>
 
