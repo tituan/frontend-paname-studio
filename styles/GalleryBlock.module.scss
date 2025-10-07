@@ -29,10 +29,23 @@
   }
 }
 
+.imageContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+  padding: 0 20px;
+  @include respond(tablet) {
+    gap: 20px;
+  }
+}
+
 .logoImg {
   display: block;
   height: auto;
-  max-width: 130px;
+  max-width: 42%;
   cursor: pointer;
   transition: transform .25s ease;
   @include respond(tablet) {
@@ -51,7 +64,7 @@
   line-height: 1.8;
   font-family: 'Share Tech Mono', monospace;
   font-weight: 400;
-
+  margin-bottom: 20px;
   @include respond(tablet) {
     font-size: 14px;
     margin-bottom: 25px;
@@ -68,9 +81,8 @@
   border-radius: 5px;
   overflow: hidden;
   @include respond(tablet) {
-    max-width: 20%;
-    border-radius: 5px;
-    max-width: 170px;
+    max-width: auto;
+    max-width: 250px;
   }
 }
 

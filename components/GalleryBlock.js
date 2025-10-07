@@ -30,7 +30,7 @@ export default function GalleryBlock() {
         <span>L’image au service de la créativité</span>
         <span>Capter le réel, s’en inspirer pour créer</span>
       </h2>
-
+    <div className={styles.imageContainer}>
       {images.map((src, i) => (
         <div key={i} className={styles.imageWrapper}>
           <Image
@@ -44,6 +44,8 @@ export default function GalleryBlock() {
           />
         </div>
       ))}
+    </div>
+      
 
       <div className={styles.seeMoreContainer}>
         <Link href="/gallery" legacyBehavior passHref>
