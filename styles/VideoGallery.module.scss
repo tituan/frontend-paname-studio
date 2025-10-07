@@ -16,9 +16,12 @@
 .logoImg {
   display: block;
   height: auto;
-  max-width: 160px;
+  max-width: 130px;
   cursor: pointer;
   transition: transform .25s ease;
+  @include respond(tablet) {
+    max-width: 160px;
+  }
   &:hover {
     transform: scale(1.03);
   }

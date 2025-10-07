@@ -8,12 +8,13 @@
   align-items: center;
   gap: 1rem;
   width: 100%;
-
+  margin-bottom: 40px;
   @include respond(tablet) {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    margin-bottom: 0;
   }
 }
 
@@ -31,9 +32,12 @@
 .logoImg {
   display: block;
   height: auto;
-  max-width: 160px;
+  max-width: 130px;
   cursor: pointer;
   transition: transform .25s ease;
+  @include respond(tablet) {
+    max-width: 160px;
+  }
   &:hover {
     transform: scale(1.03);
   }
@@ -60,12 +64,13 @@
 
 .imageWrapper {
   width: 100%;
-  max-width: 170px;
+  max-width: 150px;
   border-radius: 5px;
   overflow: hidden;
   @include respond(tablet) {
     max-width: 20%;
     border-radius: 5px;
+    max-width: 170px;
   }
 }
 
