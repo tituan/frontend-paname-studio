@@ -108,6 +108,7 @@ export default function VideoGallery() {
           className={styles.logoImg}
         />
       </h2>
+      <p className={styles.gallerySentence}>Faire vivre un instant suspendu <span>Un regard en mouvement sur le monde</span></p>
     </div>
       <div className={styles.galleryContainer}>
         {videoList.map((video) => (

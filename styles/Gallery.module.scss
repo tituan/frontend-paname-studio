@@ -1,33 +1,47 @@
 @import "breakpoints";
 @import "variables";
 
-/* WRAPPER GLOBAL */
 .wrap {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+  margin-bottom: 40px;
 }
 
-/* HEADER */
-/* header en grille 3 colonnes : back | title centré | ghost */
 .header {
   display: flex;
+  justify-content: center;
   margin-bottom: 12px;
 }
 
-.back { justify-self: start; }
 
 .siteTitle {
-  justify-self: center;
-  margin: 0;
   line-height: 1;
-  /* empêche l’image de dépasser en responsive */
-  img { display: block; max-width: clamp(160px, 28vw, 320px); height: auto; }
+  img { 
+    display: block; 
+    width: 250px!important; 
+    height: auto; 
+  }
 }
 
-.headerGhost { justify-self: end; width: 44px; height: 1px; } /* taille ~ au bouton back */
+.subTitle {
+  font-size: 16px;
+  font-family: 'Share Tech Mono', monospace;
+  color: #000;
+  font-weight: 600;
+  margin: 15px 0;
+  @include respond(tablet) {
+    font-size: 28px;
+    margin: 20px 0;
+  }
+}
 
-/* utilitaire accessibilité */
+.headerGhost { 
+  justify-self: end; 
+  width: 44px; 
+  height: 1px; 
+} 
+
 .srOnly {
   position: absolute !important;
   width: 1px; height: 1px;
@@ -36,19 +50,47 @@
   white-space: nowrap; border: 0;
 }
 
+/* ---------- FIL D’ARIANE (BREADCRUMB) ---------- */
 
-.back {
-  color: $color-black;
+.breadcrumb {
+  display: flex;
+  gap: 4px;
+  font-family: 'Share Tech Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.breadcrumbLink {
+  color: #000;
+  font-size: 12px;
+  font-weight: 400;
   text-decoration: none;
-  font-weight: 600;
   opacity: 0.9;
-  transition: opacity 0.2s ease;
+  transition: all 0.2s ease;
 
-  &:hover { opacity: 1; }
+  &:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+  }
+
   &:focus-visible {
-    outline: 2px solid #000;
+    outline: 2px dashed #000;
     outline-offset: 2px;
   }
+}
+
+.breadcrumbDash {
+  color: #000;
+  font-size: 12px;
+  user-select: none;
+  opacity: 0.8;
+}
+
+.breadcrumbPage {
+  color: #555;
+  font-size: 12px;
+  font-weight: 400;
+  opacity: 0.8;
 }
 
 .title {
@@ -56,28 +98,25 @@
   margin: 0;
 }
 
-.sub {
+.subText {
   color: #000;
   font-family: 'Share Tech Mono', monospace;
-  margin: 30px 0;;
+  margin: 0px 0 30px;
   font-size: 12px;
   line-height: 1.8;
-  max-width: 60%;
+  max-width: 100%;
   @include respond(tablet) {
     font-size: 14px;
   }
 }
 
-/* ────────────────────────────────────────────────────────────── */
-/* TABS (collections)                                             */
-/* ────────────────────────────────────────────────────────────── */
 .tabs {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   margin: 12px 0 16px;
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
   padding: 10px 0;
   @include respond(tablet) {
     padding: 15px 0;

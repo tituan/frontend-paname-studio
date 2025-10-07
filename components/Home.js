@@ -6,9 +6,9 @@ import GalleryBlock from './GalleryBlock';
 import Footer from './Footer';
 import VideoGallery from './VideoGallery';
 import { motion } from 'framer-motion';
-import BackgroundManager from '../components/BackgroundManager';
-import ColorPicker from '../components/ColorPicker';
-import GalleryGrid from '../components/GalleryGrid';
+// import BackgroundManager from '../components/BackgroundManager';
+// import ColorPicker from '../components/ColorPicker';
+// import GalleryGrid from '../components/GalleryGrid';
 
 function Home() {
   const [activeSection, setActiveSection] = useState('');
@@ -41,8 +41,8 @@ function Home() {
 
   return (
     <div className={styles.pageContainer}>
-      {/* <BackgroundManager color={bgColor} /> */}
-      {/* <ColorPicker onColorChange={setBgColor} /> */}
+     {/* <BackgroundManager color={bgColor} />
+     <ColorPicker onColorChange={setBgColor} />  */}
 
       <div className={styles.mapWrapper}>
         <nav className={styles.sidebar}>

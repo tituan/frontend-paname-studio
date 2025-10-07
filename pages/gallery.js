@@ -30,7 +30,7 @@ const COLLECTIONS = [
     id: "city13",
     title: "PARIS 13",
     subTitle:"Olympiades",
-    description: "Un soir d’été, promenade au cœur des Olympiades, ensemble emblématique d’Italie 13 (1969-1977) imaginé par l’architecte Michel Holley. Passerelles, dalles et esplanades composent une micro-ville où se dressent les tours Sapporo, Mexico, Athènes, Helsinki, Cortina et Tokyo, auxquelles répondent Londres et Anvers, puis les barres Rome, Grenoble et Squaw Valley. Entre la galerie Mercure, le centre Oslo et les équipements de quartier, cette série capture les lignes, la lumière et la vie qui animent ce paysage moderniste.",
+    description: "Un soir d’été, promenade au cœur des Olympiades, ensemble emblématique d’Italie 13 imaginé par l’architecte Michel Holley. Passerelles, dalles et esplanades composent une micro-ville où se dressent les tours Sapporo, Mexico, Athènes... Cette série capture les lignes, la lumière et la vie qui animent ce paysage moderniste en plein Paris",
     year: 2025,
     cover: "/img/series/city13/city13-10-min.jpg",
     photos: [
@@ -122,7 +122,7 @@ export default function GalleryPage() {
 
       <div className={styles.wrap}>
         <header className={styles.header}>
-          {/* <Link href="/" className={styles.back} aria-label="Retour à l’accueil"> </Link> */}
+          
 
           {/* H1 principal : texte sr-only + logo décoratif */}
           <h1 className={styles.siteTitle}>
@@ -136,11 +136,19 @@ export default function GalleryPage() {
               priority
             />
           </h1>
-        </header>
 
-        <p className={styles.sub}>
-          Découvrez mes collections de photos. Chaque section rassemble des images autour d’un
-          même regard pour parcourir simplement mes instants uniques.
+        </header>
+        <div className={styles.breadcrumb}>
+          <Link href="/" aria-label="Home">
+            <a className={styles.breadcrumbLink}>Home</a>
+          </Link>
+          <span className={styles.breadcrumbDash}> > </span>
+          <p className={styles.breadcrumbPage}>Galerie</p>
+        </div>
+        
+        <h2 className={styles.subTitle}>Le Studio Images</h2>
+        <p className={styles.subText}>
+         Découvrez mes collections de photographies. Chaque série rassemble des images guidées par un même regard : la recherche d’un instant suspendu, d’une lumière, d’une émotion. Ici, la photographie devient un langage silencieux, elle capte le réel, révèle la beauté des détails et fixe ce qui, d’ordinaire, nous échappe.
         </p>
 
         <nav className={styles.tabs} aria-label="Collections">
