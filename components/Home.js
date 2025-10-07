@@ -5,6 +5,7 @@ import HeaderVideo from './HeaderVideo';
 import GalleryBlock from './GalleryBlock';
 import Footer from './Footer';
 import VideoGallery from './VideoGallery';
+import Partenaires from "./Partenaires";
 import { motion } from 'framer-motion';
 // import BackgroundManager from '../components/BackgroundManager';
 // import ColorPicker from '../components/ColorPicker';
@@ -102,17 +103,18 @@ function Home() {
             <VideoGallery />
           </motion.section>
 
-          {/* <motion.section
-            id="amour"
+          <motion.section
+            id="partenaires"
             className={styles.normalSection}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
           >
-            <GalleryGrid />
-          </motion.section> */}
-
+            {/* <GalleryGrid /> */}
+            <Partenaires />
+          </motion.section>
+          
           <motion.section
             id="</>"
             className={`${styles.normalSection} ${styles.sectionFooter}`}
