@@ -4,9 +4,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { useMemo, useState, useEffect } from "react";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
+import ModalMentions from "../components/ModalMentions";
 import styles from "../styles/Gallery.module.scss";
 
-// —— Données d’exemple (pointent vers /public/...) ——
 const COLLECTIONS = [
   {
     id: "carnon",
@@ -242,6 +242,15 @@ export default function GalleryPage() {
         </section>
         {/* /Onglets */}
       </div>
+      <footer className={styles.footer}>
+        <div className={styles.footerLegal}>
+          <ModalMentions />
+        </div>
+  
+        <p className={styles.footerText}>
+          © {new Date().getFullYear()} Paname Studio
+        </p>
+      </footer>
     </>
   );
 }
