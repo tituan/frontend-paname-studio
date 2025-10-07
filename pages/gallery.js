@@ -26,29 +26,7 @@ const COLLECTIONS = [
       
     ],
   },
-  {
-    id: "city13",
-    title: "PARIS 13",
-    subTitle:"Olympiades",
-    description: "Un soir d’été, promenade au cœur des Olympiades, ensemble emblématique d’Italie 13 imaginé par l’architecte Michel Holley. Passerelles, dalles et esplanades composent une micro-ville où se dressent les tours Sapporo, Mexico, Athènes... Cette série capture les lignes, la lumière et la vie qui animent ce paysage moderniste en plein Paris",
-    year: 2025,
-    cover: "/img/series/city13/city13-10-min.jpg",
-    photos: [
-      "/img/series/city13/city13-01-min.webp",
-      "/img/series/city13/city13-02-min.webp",
-      "/img/series/city13/city13-03-min.webp",
-      "/img/series/city13/city13-04-min.webp",
-      "/img/series/city13/city13-05-min.webp",
-      "/img/series/city13/city13-06-min.webp",
-      "/img/series/city13/city13-07-min.webp",
-      "/img/series/city13/city13-09-min.jpg",
-      "/img/series/city13/city13-10-min.jpg",
-      "/img/series/city13/city13-11-min.jpg",
-      // "/img/series/city13/city13-08-min.webp",
-    ],
-  },
-  
-  {
+   {
     id: "saintmichel",
     title: "MTSTMCHL",
     subTitle:"Mont-Saint-Michel",
@@ -69,6 +47,27 @@ const COLLECTIONS = [
       "/img/series/montsaintmichel/montsaintmichel-12.webp",
       "/img/series/montsaintmichel/montsaintmichel-11.webp",
       // "/img/series/montsaintmichel/montsaintmichel-13.webp",
+    ],
+  },
+  {
+    id: "city13",
+    title: "PARIS 13",
+    subTitle:"Olympiades",
+    description: "Un soir d’été, promenade au cœur des Olympiades, ensemble emblématique d’Italie 13 imaginé par l’architecte Michel Holley. Passerelles, dalles et esplanades composent une micro-ville où se dressent les tours Sapporo, Mexico, Athènes... Cette série capture les lignes, la lumière et la vie qui animent ce paysage moderniste en plein Paris",
+    year: 2025,
+    cover: "/img/series/city13/city13-10-min.jpg",
+    photos: [
+      "/img/series/city13/city13-01-min.webp",
+      "/img/series/city13/city13-02-min.webp",
+      "/img/series/city13/city13-03-min.webp",
+      "/img/series/city13/city13-04-min.webp",
+      "/img/series/city13/city13-05-min.webp",
+      "/img/series/city13/city13-06-min.webp",
+      "/img/series/city13/city13-07-min.webp",
+      "/img/series/city13/city13-09-min.jpg",
+      "/img/series/city13/city13-10-min.jpg",
+      "/img/series/city13/city13-11-min.jpg",
+      // "/img/series/city13/city13-08-min.webp",
     ],
   },
 ];
