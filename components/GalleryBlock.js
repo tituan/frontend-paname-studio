@@ -3,9 +3,9 @@ import Link from "next/link";
 import styles from '../styles/GalleryBlock.module.scss';
 
 const images = [
-  '/img/sea-02.webp',
-  '/img/sea-01.webp',
-  '/img/sea-03.webp',
+  '/img/series/montsaintmichel/montsaintmichel-12.webp',
+  '/img/series/montsaintmichel/montsaintmichel-02.webp',
+  '/img/series/carnon/carnon-02.webp',
 ];
 
 export default function GalleryBlock() {
