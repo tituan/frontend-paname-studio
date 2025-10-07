@@ -47,10 +47,10 @@
   font-family: 'Share Tech Mono', monospace;
   font-weight: 400;
   text-transform: uppercase;
-  margin-top: 16px;
+  margin-top: 15px;
   @include respond(tablet) {
     font-size: 14px;
-    // margin-bottom: 20px;
+    margin-top: 25px;
   }
 
   span {
@@ -70,6 +70,7 @@
     transition: transform 0.3s ease;
     font-family: 'Barlow', sans-serif;
     font-weight: 300;
+    border-radius: 5px;
     @include respond(tablet) {
         width: 20%;
     }
@@ -155,7 +156,7 @@
 .modalVideo {
     max-width: 250px;
     max-height: 88dvh;
-    border-radius: 8px;
+    border-radius: 5px;
     object-fit: contain;
     @include respond(desktop) {
         max-width: 450px;
