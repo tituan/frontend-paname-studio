@@ -48,23 +48,24 @@ const COLLECTIONS = [
     ],
   },
   
-  // {
-  //   id: "noirblanc",
-  //   title: "Noir & Blanc",
-  //   subTitle:"Olympiades",
-  //   description: "Contrastes intenses et minimalisme.",
-  //   year: 2022,
-  //   cover: "/img/parisjetaime13.png",
-  //   photos: [
-  //     "/img/parisjetaime10.jpg",
-  //     "/img/parisjetaime23.webp",
-  //     "/img/parisjetaime20.webp",
-  //     "/img/parisjetaime11.jpg",
-  //     "/img/parisjetaime13.png",
-  //     "/img/parisjetaime22.webp",
-  //     "/img/parisjetaime24.png",
-  //   ],
-  // },
+  {
+    id: "saintmichel",
+    title: "MTSTMCHL",
+    subTitle:"Mont-Saint-Michel",
+    description: "La baie du Mont-Saint-Michel est l’une des plus belles merveilles que compte la France. Ici, la lumière ne cesse de se transformer, révélant à chaque instant une nouvelle palette de couleurs. Le soleil glisse sur les prés salés, les reflets se mêlent au sable, et le Mont se dresse, majestueux, au cœur d’un paysage sans cesse renouvelé. Entre ciel et mer, ombre et éclat, le Mont-Saint-Michel offre un spectacle vivant, presque irréel. Un lieu où le temps semble suspendu, et où chaque regard devient une image.",
+    year: 2025,
+    cover: "/img/series/montsaintmichel/montsaintmichel-02.webp",
+    photos: [
+      "/img/series/montsaintmichel/montsaintmichel-01.webp",
+      "/img/series/montsaintmichel/montsaintmichel-02.webp",
+      "/img/series/montsaintmichel/montsaintmichel-03.webp",
+      "/img/series/montsaintmichel/montsaintmichel-04.webp",
+      "/img/series/montsaintmichel/montsaintmichel-05.webp",
+      "/img/series/montsaintmichel/montsaintmichel-06.webp",
+      "/img/series/montsaintmichel/montsaintmichel-07.webp",
+      "/img/series/montsaintmichel/montsaintmichel-08.webp",
+    ],
+  },
 ];
 
 export default function GalleryPage() {
@@ -142,7 +143,7 @@ export default function GalleryPage() {
           <Link href="/" aria-label="Home">
             <a className={styles.breadcrumbLink}>Home</a>
           </Link>
-          <span className={styles.breadcrumbDash}> > </span>
+          <span className={styles.breadcrumbDash}> / </span>
           <p className={styles.breadcrumbPage}>Galerie</p>
         </div>
         
