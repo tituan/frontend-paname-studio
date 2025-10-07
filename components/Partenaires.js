@@ -11,7 +11,7 @@ export default function PartnersSection() {
         </h2>
 
         <p className={styles.subtitle}>
-          Nos partenaires dans le digital et la création
+         Nos partenaires en création digitale et solutions web
         </p>
 
         <div className={styles.logos} role="list" aria-label="Logos de partenaires Paname Studio">
