@@ -19,8 +19,11 @@
   line-height: 1;
   img { 
     display: block; 
-    width: 250px!important; 
+    width: 190px!important; 
     height: auto; 
+    @include respond(tablet) {
+      width: 300px!important; 
+    }
   }
 }
 
