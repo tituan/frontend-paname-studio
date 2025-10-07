@@ -54,7 +54,7 @@ const COLLECTIONS = [
     subTitle:"Mont-Saint-Michel",
     description: "La baie du Mont-Saint-Michel est l’une des plus belles merveilles que compte la France. Ici, la lumière ne cesse de se transformer, révélant à chaque instant une nouvelle palette de couleurs. Le soleil glisse sur les prés salés, les reflets se mêlent au sable, et le Mont se dresse, majestueux, au cœur d’un paysage sans cesse renouvelé. Entre ciel et mer, ombre et éclat, le Mont-Saint-Michel offre un spectacle vivant, presque irréel. Un lieu où le temps semble suspendu, et où chaque regard devient une image.",
     year: 2025,
-    cover: "/img/series/montsaintmichel/montsaintmichel-02.webp",
+    cover: "/img/series/montsaintmichel/montsaintmichel-12.webp",
     photos: [
       "/img/series/montsaintmichel/montsaintmichel-01.webp",
       "/img/series/montsaintmichel/montsaintmichel-02.webp",
