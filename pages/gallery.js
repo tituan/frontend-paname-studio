@@ -64,6 +64,11 @@ const COLLECTIONS = [
       "/img/series/montsaintmichel/montsaintmichel-06.webp",
       "/img/series/montsaintmichel/montsaintmichel-07.webp",
       "/img/series/montsaintmichel/montsaintmichel-08.webp",
+       "/img/series/montsaintmichel/montsaintmichel-09.webp",
+      "/img/series/montsaintmichel/montsaintmichel-010.webp",
+      "/img/series/montsaintmichel/montsaintmichel-12.webp",
+      "/img/series/montsaintmichel/montsaintmichel-11.webp",
+      // "/img/series/montsaintmichel/montsaintmichel-13.webp",
     ],
   },
 ];
